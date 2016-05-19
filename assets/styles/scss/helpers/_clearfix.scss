@@ -1,0 +1,17 @@
+/*************************************************|
+| For elements that have floating elements inside |
+| of them, this causes the container to have the  |
+| proper height.
+*************************************************/
+
+.cf {
+
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}

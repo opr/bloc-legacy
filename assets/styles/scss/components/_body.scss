@@ -1,0 +1,6 @@
+body{
+
+  @include option(nav-open) {
+    overflow: hidden;
+  }
+}

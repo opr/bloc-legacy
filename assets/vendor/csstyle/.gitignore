@@ -1,0 +1,6 @@
+*.css
+*.css.map
+.sass-cache
+node_modules
+.divshot-cache
+site/divshot.json

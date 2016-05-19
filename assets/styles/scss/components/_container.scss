@@ -1,0 +1,25 @@
+/*************************************************|
+| Container                                       |
+*************************************************/
+
+.container {
+
+  @extend .cf;
+  padding: 0 $basepadding;
+
+  @include bp($landscapetablet) {
+    padding: 0;
+    max-width: $max-width;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  @include bp($desktop) {
+    width: 85%;
+  }
+
+  @include option(--d75) {
+    width: 75%;
+  }
+
+}

@@ -1,0 +1,536 @@
+@charset "UTF-8";
+/*************************************************|
+| Welcome to Valoisa. This is the main file we'll |
+| compile our stylesheet from. If you want to add |
+| any of your own sass files, you should add them |
+| at the bottom of this file.                     |
+*************************************************/
+/* --------------------------------
+
+Modules - reusable parts of our design
+
+-------------------------------- */
+@import url(https://fonts.googleapis.com/css?family=Muli:400,300);
+.cd-container {
+  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+  /*width: 90%;
+  max-width: $L; // breakpoints inside partials > _layout.scss
+  margin: 0 auto;*/ }
+  .cd-container::after {
+    /* clearfix */
+    content: '';
+    display: table;
+    clear: both; }
+
+/* --------------------------------
+
+Main components
+
+-------------------------------- */
+#cd-timeline {
+  position: relative;
+  padding: 2em 0;
+  margin-top: 2em;
+  margin-bottom: 2em; }
+  #cd-timeline:before {
+    /* this is the vertical line */
+    content: '';
+    position: absolute;
+    color: red;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: #d7e4ed; }
+  @media only screen and (min-width: 960px) {
+    #cd-timeline {
+      margin-top: 3em;
+      margin-bottom: 3em; }
+      #cd-timeline::before {
+        left: 50%;
+        margin-left: -2px; } }
+
+.cd-timeline-block {
+  position: relative;
+  margin: 2em 0; }
+  .cd-timeline-block::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .cd-timeline-block:first-child {
+    margin-top: 0; }
+  .cd-timeline-block:last-child {
+    margin-bottom: 0; }
+  @media only screen and (min-width: 960px) {
+    .cd-timeline-block {
+      margin: 4em 0; }
+      .cd-timeline-block:first-child {
+        margin-top: 0; }
+      .cd-timeline-block:last-child {
+        margin-bottom: 0; } }
+
+.cd-timeline-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #ffffff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05); }
+  .cd-timeline-img img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    margin-left: -12px;
+    margin-top: -12px; }
+  @media only screen and (min-width: 960px) {
+    .cd-timeline-img {
+      width: 60px;
+      height: 60px;
+      left: 50%;
+      margin-left: -30px;
+      /* Force Hardware Acceleration in WebKit */
+      -webkit-transform: translateZ(0);
+      -webkit-backface-visibility: hidden; }
+      .cssanimations .cd-timeline-img.is-hidden {
+        visibility: hidden; }
+      .cssanimations .cd-timeline-img.bounce-in {
+        visibility: visible;
+        -webkit-animation: cd-bounce-1 0.6s;
+        animation: cd-bounce-1 0.6s; } }
+
+@-webkit-keyframes cd-bounce-1 {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5); }
+  60% {
+    opacity: 1;
+    -webkit-transform: scale(1.2); }
+  100% {
+    -webkit-transform: scale(1); } }
+
+@keyframes cd-bounce-1 {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5); }
+  60% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2); }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+.cd-timeline-content {
+  position: relative;
+  margin-left: 60px;
+  background: #ffffff;
+  border-radius: 0.25em;
+  padding: 1em;
+  box-shadow: 0 3px 0 #d7e4ed; }
+  .cd-timeline-content::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .cd-timeline-content h2 {
+    color: #303e49; }
+  .cd-timeline-content p, .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+    font-size: 13px;
+    font-size: 0.8125rem; }
+  .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+    display: inline-block; }
+  .cd-timeline-content p {
+    margin: 1em 0;
+    line-height: 1.6; }
+  .cd-timeline-content .cd-read-more {
+    float: right;
+    padding: .8em 1em;
+    background: #acb7c0;
+    color: #ffffff;
+    border-radius: 0.25em; }
+    .no-touch .cd-timeline-content .cd-read-more:hover {
+      background-color: #bac4cb; }
+  .cd-timeline-content .cd-date {
+    float: left;
+    padding: .8em 0;
+    opacity: .7; }
+  .cd-timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 16px;
+    right: 100%;
+    height: 0;
+    width: 0;
+    border: 7px solid transparent;
+    border-right: 7px solid #ffffff; }
+  @media only screen and (min-width: 560px) {
+    .cd-timeline-content h2 {
+      font-size: 20px;
+      font-size: 1.25rem; }
+    .cd-timeline-content p {
+      font-size: 16px;
+      font-size: 1rem; }
+    .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+      font-size: 14px;
+      font-size: 0.875rem; } }
+  @media only screen and (min-width: 960px) {
+    .cd-timeline-content {
+      margin-left: 0;
+      padding: 1.6em;
+      width: 45%; }
+      .cd-timeline-content::before {
+        top: 24px;
+        left: 100%;
+        border-color: transparent;
+        border-left-color: #ffffff; }
+      .cd-timeline-content .cd-read-more {
+        float: left; }
+      .cd-timeline-content .cd-date {
+        position: absolute;
+        width: 100%;
+        left: 122%;
+        top: 6px;
+        font-size: 16px;
+        font-size: 1rem; }
+      .cd-timeline-block:nth-child(even) .cd-timeline-content {
+        float: right; }
+        .cd-timeline-block:nth-child(even) .cd-timeline-content::before {
+          top: 24px;
+          left: auto;
+          right: 100%;
+          border-color: transparent;
+          border-right-color: #ffffff; }
+        .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {
+          float: right; }
+        .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-date {
+          left: auto;
+          right: 122%;
+          text-align: right; }
+      .cssanimations .cd-timeline-content.is-hidden {
+        visibility: hidden; }
+      .cssanimations .cd-timeline-content.bounce-in {
+        visibility: visible;
+        -webkit-animation: cd-bounce-2 0.6s;
+        animation: cd-bounce-2 0.6s; } }
+
+@media only screen and (min-width: 960px) {
+  /* inverse bounce effect on even content blocks */
+  .cssanimations .cd-timeline-block:nth-child(even) .cd-timeline-content.bounce-in {
+    -webkit-animation: cd-bounce-2-inverse 0.6s;
+    animation: cd-bounce-2-inverse 0.6s; } }
+
+@-webkit-keyframes cd-bounce-2 {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100px); }
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(20px); }
+  100% {
+    -webkit-transform: translateX(0); } }
+
+@keyframes cd-bounce-2 {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-100px);
+    transform: translateX(-100px); }
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(20px);
+    transform: translateX(20px); }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0); } }
+
+@-webkit-keyframes cd-bounce-2-inverse {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100px); }
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(-20px); }
+  100% {
+    -webkit-transform: translateX(0); } }
+
+@keyframes cd-bounce-2-inverse {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100px);
+    transform: translateX(100px); }
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(-20px);
+    transform: translateX(-20px); }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0); } }
+
+/*************************************************|
+| Helpers are classes that are useful but aren't  |
+| really considered to "style" the element.       |
+*************************************************/
+/*************************************************|
+| For elements that have floating elements inside |
+| of them, this causes the container to have the  |
+| proper height.
+*************************************************/
+.cf:after, .container:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
+
+/*************************************************|
+| Gotta put the mixins now so we have cool        |
+| functions to use to save us time and money.     |
+*************************************************/
+/*************************************************|
+| The breakpoint mixin, this will probably suit   |
+| your needs, but feel free to hack it if it      |
+| doesn't                                         |
+*************************************************/
+.notransition {
+  -webkit-transition: none !important;
+  transition: none !important; }
+
+/*************************************************|
+| We just reset everything so all styles below    |
+| will be on a fresh canvas, delicious!  Just     |
+| some configuration then we can actually do some |
+| styling!
+*************************************************/
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/*************************************************|
+| Breakpoints                                     |
+*************************************************/
+/*************************************************|
+| Fonts                                           |
+*************************************************/
+/*************************************************|
+| Font Sizes                                      |
+*************************************************/
+/*************************************************|
+| Font Colours                                    |
+*************************************************/
+/*************************************************|
+| Colours                                         |
+*************************************************/
+/*************************************************|
+| Form Controls                                   |
+*************************************************/
+/*************************************************|
+| Grid Variables                                  |
+*************************************************/
+/*************************************************|
+| Padding Variables                               |
+*************************************************/
+/*************************************************|
+| Transition Times                                |
+*************************************************/
+/*************************************************|
+| Input stuff                                |
+*************************************************/
+/*************************************************|
+| Put your fonts in here                          |
+*************************************************/
+@font-face {
+  font-family: 'CenturyGothic';
+  src: url(../../fonts/CenturyGothic.eot);
+  src: local("☺"), url(../../fonts/CenturyGothic.ttf); }
+
+@font-face {
+  font-family: 'CenturyGothicBold';
+  src: url(../../fonts/CenturyGothicBold.eot);
+  src: local("☺"), url(../../fonts/CenturyGothicBold.ttf); }
+
+html {
+  font-family: "Muli", sans-serif;
+  font-size: 14px;
+  color: #000; }
+  @media (min-width: 560px) {
+    html {
+      font-size: 14px; } }
+  @media (min-width: 960px) {
+    html {
+      font-size: 14px; } }
+  @media (min-width: 1260px) {
+    html {
+      font-size: 14px; } }
+
+a {
+  color: #FF9A04; }
+
+/*************************************************|
+| Now we can actually get on with making the site |
+| styles                                          |
+*************************************************/
+body.\--nav-open {
+  overflow: hidden; }
+
+/*************************************************|
+| Container                                       |
+*************************************************/
+.container {
+  padding: 0 28px; }
+  @media (min-width: 960px) {
+    .container {
+      padding: 0;
+      max-width: 1400px;
+      width: 90%;
+      margin: 0 auto; } }
+  @media (min-width: 1260px) {
+    .container {
+      width: 85%; } }
+  .container.\----d75 {
+    width: 75%; }
+
+.header-topbar {
+  height: 50px;
+  width: 100%;
+  background: #38548c; }
+
+@media (max-width: 560px) {
+  .header {
+    color: red; } }
+
+@media (min-width: 560px) {
+  .header__column {
+    width: 50%;
+    float: left;
+    text-align: center;
+    display: inline-block; }
+    .header__column:last-child {
+      width: 100%; } }
+
+@media (min-width: 960px) {
+  .header__column {
+    width: 25%; }
+    .header__column:last-child {
+      width: 25%; } }
+
+.header__column.\--red-background {
+  background: red; }
+  @media (min-width: 1260px) {
+    .header__column.\--red-background {
+      background: yellow; } }
+
+iframe {
+  width: 100%;
+  height: 500px; }
+
+.navbar {
+  width: 100%;
+  background: #FF9A04; }
+  .navbar__mobile-control {
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    padding: 20px 0; }
+    .navbar__mobile-control.\--960px {
+      display: none; }
+
+/*************************************************|
+| Properties for elements, such as text-alignment |
+| or background colouring.                        |
+*************************************************/
+/*************************************************|
+| Background properties                           |
+*************************************************/
+.bg-primary {
+  background: #04A2E8; }
+
+.bg-secondary {
+  background: #38548c; }
+
+.bg-tertiary {
+  background: #FF9A04; }
+
+/*************************************************|
+| Padding properties                              |
+*************************************************/
+.pad {
+  padding: 28px; }
+
+.pad-l {
+  padding-left: 28px; }
+
+.pad-r {
+  padding-right: 28px; }
+
+.pad-t {
+  padding-top: 28px; }
+
+.pad-b {
+  padding-bottom: 28px; }
+
+/*************************************************|
+| Text align properties                           |
+*************************************************/
+.tac {
+  text-align: center; }
+
+.tal {
+  text-align: left; }
+
+.tar {
+  text-align: right; }
+
+.taj {
+  text-align: justify; }
+
+.rtl {
+  direction: rtl; }
+
+.ltr {
+  direction: ltr; }

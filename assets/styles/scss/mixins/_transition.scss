@@ -1,0 +1,11 @@
+@mixin transition( $prop, $style ) {
+  transition: $prop $transition_time $style;
+}
+
+@mixin transition-delay( $prop, $style, $delay ) {
+  transition: $prop $transition_time $style $delay;
+}
+
+.notransition {
+  transition: none !important;
+}

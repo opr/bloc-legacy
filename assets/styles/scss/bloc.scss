@@ -1,0 +1,47 @@
+/*************************************************|
+| Welcome to Valoisa. This is the main file we'll |
+| compile our stylesheet from. If you want to add |
+| any of your own sass files, you should add them |
+| at the bottom of this file.                     |
+*************************************************/
+@import "../../vendor/csstyle/csstyle";
+
+
+/*************************************************|
+| Helpers are classes that are useful but aren't  |
+| really considered to "style" the element.       |
+*************************************************/
+
+@import "helpers/*";
+
+/*************************************************|
+| Gotta put the mixins now so we have cool        |
+| functions to use to save us time and money.     |
+*************************************************/
+
+@import "mixins/*";
+
+/*************************************************|
+| We just reset everything so all styles below    |
+| will be on a fresh canvas, delicious!  Just     |
+| some configuration then we can actually do some |
+| styling!
+*************************************************/
+
+@import "config/reset";
+@import "config/variables";
+@import "config/fonts";
+
+/*************************************************|
+| Now we can actually get on with making the site |
+| styles                                          |
+*************************************************/
+
+@import "components/*";
+
+/*************************************************|
+| Properties for elements, such as text-alignment |
+| or background colouring.                        |
+*************************************************/
+
+@import "properties/*";

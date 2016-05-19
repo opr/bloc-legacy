@@ -1,0 +1,23 @@
+/*************************************************|
+| Padding properties                              |
+*************************************************/
+
+.pad {
+  padding: $basepadding;
+}
+
+.pad-l {
+  padding-left: $basepadding;
+}
+
+.pad-r {
+  padding-right: $basepadding;
+}
+
+.pad-t {
+  padding-top: $basepadding;
+}
+
+.pad-b {
+  padding-bottom: $basepadding;
+}

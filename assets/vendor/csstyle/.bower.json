@@ -1,0 +1,36 @@
+{
+  "name": "csstyle",
+  "version": "1.5.0",
+  "homepage": "http://www.csstyle.io",
+  "authors": [
+    "Dave Geddes <davidcgeddes@gmail.com>"
+  ],
+  "description": "clean, simple styling for styling the web.",
+  "main": "csstyle.scss",
+  "keywords": [
+    "css",
+    "sass",
+    "scss",
+    "web",
+    "components",
+    "styling",
+    "mixins",
+    "method",
+    "approach"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "spec",
+    "site"
+  ],
+  "_release": "1.5.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.5.0",
+    "commit": "d0c5633fb01b736734217cbdf3892ab1882761e0"
+  },
+  "_source": "git://github.com/geddski/csstyle.git",
+  "_target": "~1.5.0",
+  "_originalSource": "csstyle"
+}

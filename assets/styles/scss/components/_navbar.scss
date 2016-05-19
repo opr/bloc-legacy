@@ -1,0 +1,15 @@
+@include component(navbar) {
+  width: 100%;
+  background: $navbar-background;
+
+  @include part(mobile-control) {
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    padding: 20px 0;
+
+    @include option($landscapetablet) {
+      display: none;
+    }
+  }
+}

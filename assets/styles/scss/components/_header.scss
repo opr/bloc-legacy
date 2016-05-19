@@ -1,0 +1,44 @@
+@include component(header) {
+  width: 100%;
+  display: none;
+
+  @include part(button) {
+    color: green;
+  }
+
+  @include part(column) {
+    width: 100%;
+    text-align: center;
+    color: $secondary;
+    background: $tertiary;
+
+    @include bp($tablet) {
+      color: red;
+      width: 48%;
+      display: block;
+      float: left;
+      margin: 0 4% 20px 0;
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+
+    @include bp($landscapetablet) {
+      width: 22%;
+
+      &:nth-child(2n) {
+        margin-right: 4%;
+      }
+
+      &:nth-child(4n) {
+        margin-right: 0;
+      }
+    }
+
+    @include option(red-background) {
+      background: blue;
+      color: $tertiary;
+    }
+  }
+}

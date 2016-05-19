@@ -1,0 +1,91 @@
+/*************************************************|
+| Breakpoints                                     |
+*************************************************/
+
+$mobile                            : 320px;
+$tablet                            : 560px;
+$landscapetablet                   : 960px;
+$desktop                           : 1260px;
+
+/*************************************************|
+| Fonts                                           |
+*************************************************/
+
+$basefont                          : 'Muli', sans-serif;
+$boldfont                          : 'CenturyGothic', sans-serif;
+$headerfont                        : 'CenturyGothicBold', sans-serif;
+
+/*************************************************|
+| Font Sizes                                      |
+*************************************************/
+
+$basefontsize__mobile              : 14px;
+$basefontsize__tablet_portrait     : 14px;
+$basefontsize__tablet_landscape    : 14px;
+$basefontsize__desktop             : 14px;
+$lineheight                        : 19px;
+
+/*************************************************|
+| Font Colours                                    |
+*************************************************/
+
+$basefontcolor                     : #000;
+$offblack                          : #0f2b3d;
+$offblack__lighter                          : #1f455f;
+$basegrey                          : #504f4e;
+$headerfontcolor                   : #504f4e;
+$buttontextcolor                   : #fff;
+
+/*************************************************|
+| Colours                                         |
+*************************************************/
+
+$primary                           : #04A2E8;
+$secondary                         : #38548c;
+$tertiary                          : #FF9A04;
+$quaternary                        : #E80406;
+
+$palette__a                        : #00a64b;
+$palette__b                        : #ff0e02;
+$palette__c                        : #ff8725;
+$palette__d                        : #7536c8;
+$topbar-background                 : $secondary;
+$navbar-background                 : $tertiary;
+
+/*************************************************|
+| Form Controls                                   |
+*************************************************/
+
+$inputheight                       : 30px;
+
+/*************************************************|
+| Grid Variables                                  |
+*************************************************/
+
+$max-width                         : 1400px;
+$columncount__desktop              : 12;
+$columncount__landscapetablet      : 10;
+$columncount__tablet               : 8;
+$columncount__mobile               : 4;
+$gutter__desktop                   : 3.8%;
+$gutter__landscapetablet           : 3.5%;
+$gutter__tablet                    : 3.5%;
+$gutter__mobile                    : 3.5%;
+
+/*************************************************|
+| Padding Variables                               |
+*************************************************/
+
+$basepadding__mobile               : 14px;
+$basepadding                       : 28px;
+$largepadding                      : 1.8em;
+
+/*************************************************|
+| Transition Times                                |
+*************************************************/
+$transition_time                   : 0.3s;
+
+/*************************************************|
+| Input stuff                                |
+*************************************************/
+$inputBorder                   : #a5b9c7;

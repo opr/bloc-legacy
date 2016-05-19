@@ -1,0 +1,38 @@
+/*************************************************|
+| Put your fonts in here                          |
+*************************************************/
+
+@import url(https://fonts.googleapis.com/css?family=Muli:400,300);
+
+@font-face {
+  font-family: 'CenturyGothic';
+  src: url(../../fonts/CenturyGothic.eot);
+  src: local('☺'), url(../../fonts/CenturyGothic.ttf);
+}
+@font-face {
+  font-family: 'CenturyGothicBold';
+  src: url(../../fonts/CenturyGothicBold.eot);
+  src: local('☺'), url(../../fonts/CenturyGothicBold.ttf);
+}
+
+html {
+  font-family: $basefont;
+  font-size: $basefontsize__mobile;
+  color: $basefontcolor;
+
+  @include bp($tablet) {
+    font-size: $basefontsize__tablet_portrait;
+  }
+
+  @include bp($landscapetablet) {
+    font-size: $basefontsize__tablet_landscape;
+  }
+
+  @include bp($desktop) {
+    font-size: $basefontsize__desktop;
+  }
+}
+
+a {
+  color: $tertiary;
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Bloc",
+  "version": "1.0.0",
+  "description": "A responsive CSS Framework.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.7.7",
+    "babel-preset-es2015": "^6.6.0",
+    "browser-sync": "^2.9.11",
+    "gulp-autoprefixer": "~3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssimport": "^2.1.2",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-ignore": "^2.0.1",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-import-css": "^0.1.2",
+    "gulp-jshint": "^1.11.2",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-sort": "^1.1.1",
+    "gulp-uglify": "^1.4.2",
+    "gulp-wp-pot": "^1.1.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-sass-glob": "^1.0.6",
+    "gulp-sass-globbing": "0.0.2"
+  }
+}
