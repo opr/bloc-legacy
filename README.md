@@ -22,10 +22,10 @@ File: **assets/styles/scss/components/_my-fancy-component.scss**
 ```sass
 @include component('my-fancy-component') {
   
-  @include part(my-fancy-part) {
+  @include part('my-fancy-part') {
     color: green;
     
-    @include option(inactive) {
+    @include option('inactive') {
       color: #444;
     }
   }
