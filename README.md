@@ -16,6 +16,7 @@ File: **components/my-fancy-component.php**
 ```
 
 The sass below sets up the component: "my-fancy-component", the parts of the component: "my-fancy-part" and an option that can be applied to the parts: "inactive".
+
 File: **assets/styles/scss/components/_my-fancy-component.scss**
 
 ```sass
