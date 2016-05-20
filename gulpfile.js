@@ -79,7 +79,7 @@ gulp.task('scripts', function() {
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('assets/js/dist/all.js').on( 'change', browsersync.reload);
+    gulp.watch('assets/js/dist/bloc.js').on( 'change', browsersync.reload);
     gulp.watch('assets/js/*.js', ['lint', 'scripts']);
     gulp.watch('assets/styles/scss/**/*.scss', ['sass']);//.on( 'change', browsersync.stream );
 });
