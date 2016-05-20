@@ -35,6 +35,23 @@ File: **assets/styles/scss/components/_my-fancy-component.scss**
 
 Grab the repo, put it somewhere a web server that can handle PHP files can see it, and navigate to it!
 
+Open **gulpfile.js** and check that the "appUrl" variable on line 4 is set to where you access the project in your browser.
+
+Make sure you have [node and npm installed](https://docs.npmjs.com/getting-started/installing-node).
+
+On the command line, navigate to the root folder of this project and type:
+````
+npm install -g gulp && npm install
+````
+
+This will install all of the node modules needed.
+
+After that command has run, type 
+````
+gulp
+````
+
+and now visit http://localhost:3000 in your browser.
 
 ## License
 
