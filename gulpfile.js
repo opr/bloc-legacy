@@ -1,7 +1,7 @@
 // Include gulp
 var gulp = require('gulp'),
     textDomain = 'bloc',
-    appUrl = "bloc.local";
+    appUrl = "airtours.local";
 
 // Include Our Plugins
 var jshint = require('gulp-jshint'),
@@ -13,21 +13,41 @@ var jshint = require('gulp-jshint'),
     rename = require('gulp-rename'),
     plumber = require('gulp-plumber'),
     notify = require('gulp-notify'),
-    browsersync = require('browser-sync').create(),
+    browsersync = require('browser-sync'),
     autoprefixer = require('gulp-autoprefixer'),
     cssmin = require('gulp-cssmin'),
     cssimport = require('gulp-cssimport'),
+    webpack = require('webpack-stream'),
+    webpackDevMiddleware = require('webpack-dev-middleware'),
+    webpackHotMiddleware = require('webpack-hot-middleware'),
+    webpackStatic = require('webpack'),
+    gutil = require('gulp-util'),
     sort = require('gulp-sort');
 
+
+
+var webpackConfig = require('./webpack.config.js'),
+    bundler = webpackStatic(webpackConfig);
+
 gulp.task('browser-sync', function() {
-    browsersync.init({
-        proxy: appUrl,
+    browsersync({
         open: false,
-        notify: false,
+        notify: true,
         ghostMode: {
             clicks: false,
             forms: true,
             scroll: false
+        },
+        proxy: {
+            target: appUrl,
+            middleware: [
+                webpackDevMiddleware(bundler, {
+                    publicPath: webpackConfig.output.publicPath,
+                    stats: {colors: true}
+                    // http://webpack.github.io/docs/webpack-dev-middleware.html
+                }),
+                webpackHotMiddleware(bundler)
+            ]
         }
     });
 });
@@ -58,7 +78,7 @@ gulp.task('sass', function() {
         .pipe(cssimport())
         .pipe(cssmin({processImport: true}))
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('assets/styles/css'));
+        .pipe(gulp.dest('../public/assets/styles/css'));
         //.pipe(notify({message: "Sass compilation complete", title: "Compilation Successful"}));
 });
 
@@ -70,17 +90,17 @@ gulp.task('scripts', function() {
             presets: ['es2015']
         }))
         .pipe(concat('bloc.js'))
-        .pipe(gulp.dest('assets/js/dist'))
+        .pipe(gulp.dest('../public/assets/js/dist'))
         .pipe(rename('bloc.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('assets/js/dist'))
+        .pipe(gulp.dest('../public/assets/js/dist'))
         .pipe(notify({message: "Javascript linted and compiled", title: "Compilation Successful"}))
 });
 
 // Watch Files For Changes
 gulp.task('watch', function() {
     gulp.watch('assets/js/dist/bloc.js').on( 'change', browsersync.reload);
-    gulp.watch('assets/js/*.js', ['lint', 'scripts']);
+    gulp.watch(['assets/js/*.js', 'assets/js/react/*.js*'], ['lint', 'scripts']);
     gulp.watch('assets/styles/scss/**/*.scss', ['sass']);//.on( 'change', browsersync.stream );
 });
 

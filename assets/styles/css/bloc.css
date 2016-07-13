@@ -14,7 +14,7 @@
 | of them, this causes the container to have the  |
 | proper height.
 *************************************************/
-@import url(https://fonts.googleapis.com/css?family=Muli:400,300);
+@import url(https://fonts.googleapis.com/css?family=Muli:400,300,200);
 .cf:after, .container:after {
   visibility: hidden;
   display: block;
