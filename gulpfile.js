@@ -78,7 +78,7 @@ gulp.task('sass', function() {
         .pipe(cssimport())
         .pipe(cssmin({processImport: true}))
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('../public/assets/styles/css'));
+        .pipe(gulp.dest('assets/styles/css'));
         //.pipe(notify({message: "Sass compilation complete", title: "Compilation Successful"}));
 });
 
@@ -90,10 +90,10 @@ gulp.task('scripts', function() {
             presets: ['es2015']
         }))
         .pipe(concat('bloc.js'))
-        .pipe(gulp.dest('../public/assets/js/dist'))
+        .pipe(gulp.dest('assets/js/dist'))
         .pipe(rename('bloc.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('../public/assets/js/dist'))
+        .pipe(gulp.dest('assets/js/dist'))
         .pipe(notify({message: "Javascript linted and compiled", title: "Compilation Successful"}))
 });
 
