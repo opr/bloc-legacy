@@ -13,9 +13,9 @@ module.exports = {
     ],
 
     output: {
-        path: path.join(__dirname, '../public/assets/js', 'dist'),
+        path: path.join(__dirname, '/assets/js', 'dist'),
         publicPath: '/assets/js/dist/',
-        filename: 'bundle.js'
+        filename: 'bundle.min.js'
     },
 
     plugins: [

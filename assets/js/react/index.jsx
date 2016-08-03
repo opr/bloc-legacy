@@ -1,16 +1,11 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-var App =  React.createClass({
-    getInitialState: () => {
-        return { text: 'hdllo'}
-    },
-    render: function () {
-        return <p>{this.state.text}
+let anchors = {
+    //testElement: { container: document.getElementById('test-element__react-anchor'), component: <TestElement /> }
+};
 
-        </p>;
-    }
-});
-
-render(<App/>, document.getElementById('app'));
-module.hot.accept();
+for( var i in anchors ) {
+    if( anchors[i] )
+        render( anchors[i].component, anchors[i].container );
+}
