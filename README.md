@@ -39,15 +39,17 @@ You will need the following:
 * [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 * [Vagrant](https://www.vagrantup.com/downloads.html)
 
-Clone/download the repo into a folder somewhere on your machine. Type ```vagrant box update && vagrant up && vagrant ssh``` 
+Get the appropriate version for your operating system and install both of the above. If prompted, restart your machine.
 
-You will now be inside a ubuntu virtual machine. Type ```cd /var/www && npm install```.
+Clone/download the repo into a folder somewhere on your machine. Open a command window, [Git Bash](https://git-for-windows.github.io/) is recommended if you're using windows.
+
+At the command line, type: ```vagrant box update && vagrant up && vagrant ssh``` 
+
+You will now be inside a ubuntu virtual machine. Type: ```cd /var/www && npm install```.
 
 Open **gulpfile.js** and check that the "appUrl" variable on line 4 is set to where you access the project in your browser.
 
-Make sure you have [node and npm installed](https://docs.npmjs.com/getting-started/installing-node).
-
-and now visit http://localhost:3000 in your browser.
+At the command line **inside** the virtual machine, type ```gulp``` and visit http://localhost:3000 in your browser.
 
 ## License
 
