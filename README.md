@@ -43,7 +43,7 @@ Get the appropriate version for your operating system and install both of the ab
 
 Clone/download the repo into a folder somewhere on your machine. Open a command window, [Git Bash](https://git-for-windows.github.io/) is recommended if you're using windows.
 
-At the command line, type: ```vagrant box update && vagrant up && vagrant ssh``` 
+At the command line, type: ```vagrant box update && vagrant up``` after that command finishes running, type:  ```vagrant ssh``` 
 
 You will now be inside a ubuntu virtual machine. Type: ```cd /var/www && npm install```.
 
