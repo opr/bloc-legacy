@@ -39,9 +39,9 @@ You will need the following:
 * [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 * [Vagrant](https://www.vagrantup.com/downloads.html)
 
-Clone/download the repo into a folder somewhere on your machine. Type **vagrant box update && vagrant up && vagrant ssh** 
+Clone/download the repo into a folder somewhere on your machine. Type ```vagrant box update && vagrant up && vagrant ssh``` 
 
-You will now be inside a ubuntu virtual machine. Type **cd /var/www && npm install**.
+You will now be inside a ubuntu virtual machine. Type ```cd /var/www && npm install```.
 
 Open **gulpfile.js** and check that the "appUrl" variable on line 4 is set to where you access the project in your browser.
 
