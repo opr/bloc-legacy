@@ -90,9 +90,9 @@ gulp.task('scripts', function () {
         .pipe(babel({
             presets: ['es2015']
         }))
-        .pipe(concat('all.js'))
+        .pipe(concat('bloc.js'))
         .pipe(gulp.dest('assets/js/dist'))
-        .pipe(rename('all.min.js'))
+        .pipe(rename('bloc.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('assets/js/dist'))
         .pipe(notify({message: "Javascript linted and compiled", title: "Compilation Successful"}))

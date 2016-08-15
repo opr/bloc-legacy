@@ -5,5 +5,6 @@
 <body>
 
 <script src="assets/js/dist/bloc.js"></script>
+<script src="assets/js/dist/bundle.min.js"></script>
 </body>
 </html>
