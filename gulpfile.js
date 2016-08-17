@@ -1,7 +1,7 @@
 // Include gulp
 var gulp = require('gulp'),
-    textDomain = 'bloc',
-    appUrl = "bloc.local";
+    textDomain = 'bme',
+    appUrl = "bme.local";
 
 // Include Our Plugins
 var jshint = require('gulp-jshint'),
