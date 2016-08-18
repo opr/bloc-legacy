@@ -28,5 +28,9 @@ module.exports = {
         loaders: [
             { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot', 'babel'] }
         ]
+    },
+    resolve: {
+        // Allow require('./blah') to require blah.jsx
+        extensions: ['', '.js', '.jsx']
     }
 };
