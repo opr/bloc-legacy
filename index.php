@@ -4,6 +4,8 @@
 </head>
 <body>
 
+<?php include('components/image-cards.php') ?>
+
 <script src="assets/js/dist/bloc.js"></script>
 <script src="assets/js/dist/bundle.min.js"></script>
 </body>
