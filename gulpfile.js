@@ -131,6 +131,7 @@ gulp.task('watch', function () {
 
 // Default Task
 gulp.task('default', ['lint', 'sass', 'scripts', 'watch', 'webpack:build', 'bundle:minify', 'browser-sync']);
+gulp.task('build', ['lint', 'sass', 'scripts', 'webpack:build', 'bundle:minify']);
 
 
 function errorAlert(error) {
