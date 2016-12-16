@@ -22,6 +22,8 @@ var jshint = require('gulp-jshint'),
     webpackHotMiddleware = require('webpack-hot-middleware'),
     webpackStatic = require('webpack'),
     gutil = require('gulp-util'),
+    bake = require('gulp-bake'),
+    stylish = require('jshint-stylish'),
     sort = require('gulp-sort');
 
 
@@ -57,12 +59,18 @@ gulp.task('lint', function () {
         .pipe(jshint({
             esversion: 6
         }))
-        .pipe(jshint.reporter('default'));
+        .pipe(jshint.reporter('jshint-stylish'))
+        .pipe(jshint.reporter('fail'));
     //.pipe(notify({message: "Javascript linted and compiled", title: "Compilation Successful"}));
 });
 
+//Lint sass
+gulp.task('sass:lint', function() {
+
+});
+
 // Compile Our Sass
-gulp.task('sass', function () {
+gulp.task('sass:compile', function () {
 
     return gulp.src('assets/styles/scss/**/*.scss')
         .pipe(plumber({errorHandler: errorAlert}))
@@ -82,7 +90,7 @@ gulp.task('sass', function () {
 });
 
 // Concatenate & Minify JS
-gulp.task('scripts', function () {
+gulp.task('scripts', ['lint'], function () {
     return gulp.src([
         'assets/js/*.js',
         'assets/js/components/*.js'])
@@ -120,18 +128,25 @@ gulp.task('webpack:build', function () {
         .pipe(notify({message: "React built"}))
 });
 
+gulp.task('bake', function() {
+   return gulp.src(['*.html'])
+       .pipe(bake(require('./bakemap.js')))
+       .pipe(gulp.dest('./dist/'));
+});
+
 // Watch Files For Changes
 gulp.task('watch', function () {
     gulp.watch('assets/js/dist/all.js').on('change', browsersync.reload);
     gulp.watch(['assets/js/*.js', 'assets/js/components/*.js', 'assets/js/react/*.js*'], ['lint', 'scripts']);
     gulp.watch(['assets/js/react/**/*.js*'], ['webpack:build']);
     gulp.watch(['assets/js/dist/bundle.js'], ['bundle:minify']);
-    gulp.watch('assets/styles/scss/**/*.scss', ['sass']);//.on( 'change', browsersync.stream );
+    gulp.watch('assets/styles/scss/**/*.scss', ['sass:lint', 'sass:compile']);//.on( 'change', browsersync.stream );
+    gulp.watch(['**.html', '!./dist/*]'], ['bake']);//.on( 'change', browsersync.stream );
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass', 'scripts', 'watch', 'webpack:build', 'bundle:minify', 'browser-sync']);
-gulp.task('build', ['lint', 'sass', 'scripts', 'webpack:build', 'bundle:minify']);
+gulp.task('default', ['lint', 'sass:lint', 'sass:compile', 'scripts', 'watch', 'webpack:build', 'bundle:minify', 'browser-sync']);
+gulp.task('build', ['lint', 'sass:lint', 'sass:compile', 'scripts', 'webpack:build', 'bundle:minify']);
 
 
 function errorAlert(error) {
