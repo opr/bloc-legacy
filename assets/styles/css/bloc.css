@@ -16,12 +16,12 @@
 *************************************************/
 @import url(https://fonts.googleapis.com/css?family=Muli:400,300,200);
 .cf:after, .container:after, .image-cards:after {
-  visibility: hidden;
+  clear: both;
+  content: " ";
   display: block;
   font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0; }
+  height: 0;
+  visibility: hidden; }
 
 /*************************************************|
 | Gotta put the mixins now so we have cool        |

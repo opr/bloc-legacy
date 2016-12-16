@@ -23,6 +23,7 @@ var jshint = require('gulp-jshint'),
     webpackStatic = require('webpack'),
     gutil = require('gulp-util'),
     bake = require('gulp-bake'),
+    sassLint = require('gulp-sass-lint'),
     stylish = require('jshint-stylish'),
     sort = require('gulp-sort');
 
@@ -66,7 +67,20 @@ gulp.task('lint', function () {
 
 //Lint sass
 gulp.task('sass:lint', function() {
-
+    return gulp.src(['!assets/styles/scss/config/_reset.scss', 'assets/styles/scss/**/*.scss'])
+        .pipe(sassLint({
+            options: {
+                formatter: 'stylish'
+            },
+            rules: {
+                'no-ids': 2, // Severity 0 (disabled)
+                'no-css-comments': 0,
+                'no-mergeable-selectors': 1, // Severity 1 (warning)
+                'pseudo-element': 0
+            }
+        }))
+        .pipe(sassLint.format())
+        .pipe(sassLint.failOnError())
 });
 
 // Compile Our Sass

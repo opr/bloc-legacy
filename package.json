@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "gulp-bake": "^1.0.0",
-    "gulp-sass-lint": "^1.3.2"
+    "gulp-sass-lint": "^1.3.2",
+    "jshint-stylish": "^2.2.1"
   }
 }

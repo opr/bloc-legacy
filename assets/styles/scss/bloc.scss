@@ -4,7 +4,7 @@
 | any of your own sass files, you should add them |
 | at the bottom of this file.                     |
 *************************************************/
-@import "../../vendor/csstyle/csstyle";
+@import '../../vendor/csstyle/csstyle';
 
 
 /*************************************************|
@@ -12,14 +12,14 @@
 | really considered to "style" the element.       |
 *************************************************/
 
-@import "helpers/*";
+@import 'helpers/*';
 
 /*************************************************|
 | Gotta put the mixins now so we have cool        |
 | functions to use to save us time and money.     |
 *************************************************/
 
-@import "mixins/*";
+@import 'mixins/*';
 
 /*************************************************|
 | We just reset everything so all styles below    |
@@ -28,13 +28,13 @@
 | styling!
 *************************************************/
 
-@import "config/reset";
-@import "config/variables";
-@import "config/fonts";
+@import 'config/reset';
+@import 'config/variables';
+@import 'config/fonts';
 
 /*************************************************|
 | Now we can actually get on with making the site |
 | styles                                          |
 *************************************************/
 
-@import "components/*";
+@import 'components/*';

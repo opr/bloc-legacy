@@ -1,8 +1,8 @@
-@mixin transition( $prop, $style ) {
+@mixin transition($prop, $style) {
   transition: $prop $transition_time $style;
 }
 
-@mixin transition-delay( $prop, $style, $delay ) {
+@mixin transition-delay($prop, $style, $delay) {
   transition: $prop $transition_time $style $delay;
 }
 
