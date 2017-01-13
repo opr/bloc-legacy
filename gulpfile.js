@@ -75,6 +75,9 @@ gulp.task('sass:lint', function() {
             rules: {
                 'no-ids': 2, // Severity 0 (disabled)
                 'no-css-comments': 0,
+                'variable-name-format': 0,
+                'final-newline': 0,
+                'no-important': 0,
                 'no-mergeable-selectors': 1, // Severity 1 (warning)
                 'pseudo-element': 0
             }
@@ -100,7 +103,6 @@ gulp.task('sass:compile', function () {
         .pipe(cssmin({processImport: true}))
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('assets/styles/css'));
-    //.pipe(notify({message: "Sass compilation complete", title: "Compilation Successful"}));
 });
 
 // Concatenate & Minify JS
@@ -142,12 +144,6 @@ gulp.task('webpack:build', function () {
         .pipe(notify({message: "React built"}))
 });
 
-gulp.task('bake', function() {
-   return gulp.src(['*.html'])
-       .pipe(bake(require('./bakemap.js')))
-       .pipe(gulp.dest('./dist/'));
-});
-
 // Watch Files For Changes
 gulp.task('watch', function () {
     gulp.watch('assets/js/dist/all.js').on('change', browsersync.reload);
@@ -155,7 +151,6 @@ gulp.task('watch', function () {
     gulp.watch(['assets/js/react/**/*.js*'], ['webpack:build']);
     gulp.watch(['assets/js/dist/bundle.js'], ['bundle:minify']);
     gulp.watch('assets/styles/scss/**/*.scss', ['sass:lint', 'sass:compile']);//.on( 'change', browsersync.stream );
-    gulp.watch(['**.html', '!./dist/*]'], ['bake']);//.on( 'change', browsersync.stream );
 });
 
 // Default Task

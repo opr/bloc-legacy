@@ -2,21 +2,19 @@
 
 var pageFunctions = {
     common: {
-        init: function init() {
-            console.log('common init');
-        },
+        init: function init() {},
 
-        finalize: function finalize() {
-            console.log('common finalize');
-        }
+        finalize: function finalize() {}
     },
     news: {
         init: function init() {},
         finalize: function finalize() {}
     },
 
-    career_opportunities: {
-        init: function init() {},
+    blog: {
+        init: function init() {
+            console.log("blog page!");
+        },
         finalize: function finalize() {
             window.addEventListener('resize', function () {
                 normalizeElementHeights('.career-opportunity-card');

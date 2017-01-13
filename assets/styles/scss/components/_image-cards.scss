@@ -2,12 +2,12 @@
   @extend .cf;
 
   @include part(card) {
-    position: relative;
-    float: left;
-    width: 33.33%;
-    display: inline-block;
     box-sizing: border-box;
+    display: inline-block;
+    float: left;
     overflow: hidden;
+    position: relative;
+    width: 33.33%;
 
     @include part(image-container) {overflow: hidden;
       height: auto;
@@ -64,6 +64,7 @@
         &:after {
           pointer-events: none;
         }
+
       }
 
       @include part(link) {

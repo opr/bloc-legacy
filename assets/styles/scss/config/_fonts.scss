@@ -17,18 +17,6 @@
 
 html {
   font-family: $basefont;
-  font-size: $basefontsize__mobile;
+  font-size: $basefontsize + px;
   color: $basefontcolor;
-
-  @include bp($tablet) {
-    font-size: $basefontsize__tablet_portrait;
-  }
-
-  @include bp($landscapetablet) {
-    font-size: $basefontsize__tablet_landscape;
-  }
-
-  @include bp($desktop) {
-    font-size: $basefontsize__desktop;
-  }
 }

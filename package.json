@@ -18,6 +18,7 @@
     "gulp-autoprefixer": "~3.1.0",
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.0",
+    "gulp-concat-util": "^0.5.5",
     "gulp-cssimport": "^2.1.2",
     "gulp-cssmin": "^0.1.7",
     "gulp-hot-reload": "^1.2.4",

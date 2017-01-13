@@ -1,0 +1,4 @@
+@mixin font-size($val) {
+  font-size: $val + px;
+  font-size: $val / $basefontsize + rem;
+}

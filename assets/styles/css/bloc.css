@@ -15,9 +15,9 @@
 | proper height.
 *************************************************/
 @import url(https://fonts.googleapis.com/css?family=Muli:400,300,200);
-.cf:after, .container:after, .image-cards:after {
+.cf:after, :after, .container:after, .image-cards:after {
   clear: both;
-  content: " ";
+  content: '';
   display: block;
   font-size: 0;
   height: 0;
@@ -32,10 +32,6 @@
 | your needs, but feel free to hack it if it      |
 | doesn't                                         |
 *************************************************/
-.notransition {
-  -webkit-transition: none !important;
-  transition: none !important; }
-
 /*************************************************|
 | We just reset everything so all styles below    |
 | will be on a fresh canvas, delicious!  Just     |
@@ -93,31 +89,16 @@ table {
 | Breakpoints                                     |
 *************************************************/
 /*************************************************|
-| Fonts                                           |
-*************************************************/
-/*************************************************|
-| Font Sizes                                      |
-*************************************************/
-/*************************************************|
-| Font Colours                                    |
-*************************************************/
-/*************************************************|
 | Colours                                         |
 *************************************************/
 /*************************************************|
-| Form Controls                                   |
+| Font Settings - sizes in px                     |
 *************************************************/
 /*************************************************|
-| Grid Variables                                  |
-*************************************************/
-/*************************************************|
-| Padding Variables                               |
+| Container Variables                             |
 *************************************************/
 /*************************************************|
 | Transition Times                                |
-*************************************************/
-/*************************************************|
-| Input stuff                                |
 *************************************************/
 /*************************************************|
 | Put your fonts in here                          |
@@ -134,17 +115,8 @@ table {
 
 html {
   font-family: "Muli", sans-serif;
-  font-size: 14px;
-  color: #000; }
-  @media (min-width: 560px) {
-    html {
-      font-size: 14px; } }
-  @media (min-width: 960px) {
-    html {
-      font-size: 14px; } }
-  @media (min-width: 1260px) {
-    html {
-      font-size: 14px; } }
+  font-size: 16px;
+  color: #0d0d0d; }
 
 /*************************************************|
 | Now we can actually get on with making the site |
@@ -172,12 +144,12 @@ iframe {
   height: 500px; }
 
 .image-cards__card {
-  position: relative;
-  float: left;
-  width: 33.33%;
-  display: inline-block;
   box-sizing: border-box;
-  overflow: hidden; }
+  display: inline-block;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  width: 33.33%; }
   .image-cards__card__image-container {
     overflow: hidden;
     height: auto;
