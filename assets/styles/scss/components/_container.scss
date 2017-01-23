@@ -2,7 +2,7 @@
 | Container                                       |
 *************************************************/
 
-@include component(container){
+@include component(container) {
 
   @extend .cf;
   padding: 0 $basepadding;

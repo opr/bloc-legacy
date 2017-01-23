@@ -67,7 +67,7 @@ gulp.task('lint', function () {
 
 //Lint sass
 gulp.task('sass:lint', function() {
-    return gulp.src(['!assets/styles/scss/config/_reset.scss', 'assets/styles/scss/**/*.scss'])
+    return gulp.src(['!assets/styles/scss/config/_reset.scss', '!assets/styles/scss/config/_variables.scss',  '!assets/styles/scss/config/_fonts.scss', '!assets/styles/scss/mixins/_font-size.scss', 'assets/styles/scss/**/*.scss'])
         .pipe(sassLint({
             options: {
                 formatter: 'stylish'
@@ -79,7 +79,10 @@ gulp.task('sass:lint', function() {
                 'final-newline': 0,
                 'no-important': 0,
                 'no-mergeable-selectors': 1, // Severity 1 (warning)
-                'pseudo-element': 0
+                'pseudo-element': 0,
+                'placeholder-in-extend': 0,
+                'no-url-domains': 0,
+                'no-url-protocols': 0
             }
         }))
         .pipe(sassLint.format())

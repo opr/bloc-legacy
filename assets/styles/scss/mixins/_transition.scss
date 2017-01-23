@@ -6,6 +6,6 @@
   transition: $prop $transition_time $style $delay;
 }
 
-@mixin transition-time( $prop, $style, $time ) {
+@mixin transition-time($prop, $style, $time) {
   transition: $prop $time $style;
 }

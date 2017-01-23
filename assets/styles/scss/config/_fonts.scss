@@ -2,21 +2,21 @@
 | Put your fonts in here                          |
 *************************************************/
 
-@import url(https://fonts.googleapis.com/css?family=Muli:400,300,200);
+@import url('https://fonts.googleapis.com/css?family=Muli:400,300,200');
 
 @font-face {
   font-family: 'CenturyGothic';
-  src: url(../../fonts/CenturyGothic.eot);
-  src: local('☺'), url(../../fonts/CenturyGothic.ttf);
+  src: url('./../fonts/CenturyGothic.eot');
+  src: local('☺'), url('./../fonts/CenturyGothic.ttf');
 }
 @font-face {
   font-family: 'CenturyGothicBold';
-  src: url(../../fonts/CenturyGothicBold.eot);
-  src: local('☺'), url(../../fonts/CenturyGothicBold.ttf);
+  src: url('./../fonts/CenturyGothicBold.eot');
+  src: local('☺'), url('../../fonts/CenturyGothicBold.ttf');
 }
 
 html {
+  color: $basefontcolor;
   font-family: $basefont;
   font-size: $basefontsize + px;
-  color: $basefontcolor;
 }
