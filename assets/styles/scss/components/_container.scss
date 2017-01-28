@@ -8,10 +8,10 @@
   padding: 0 $basepadding;
 
   @include bp($landscapetablet) {
-    padding: 0;
-    max-width: $max-width;
-    width: 90%;
     margin: 0 auto;
+    max-width: $max-width;
+    padding: 0;
+    width: 90%;
   }
 
   @include bp($desktop) {

@@ -129,10 +129,10 @@ html {
   padding: 0 28px; }
   @media (min-width: 960px) {
     .container {
-      padding: 0;
+      margin: 0 auto;
       max-width: 1400px;
-      width: 90%;
-      margin: 0 auto; } }
+      padding: 0;
+      width: 90%; } }
   @media (min-width: 1260px) {
     .container {
       width: 85%; } }
@@ -140,5 +140,5 @@ html {
     width: 75%; }
 
 iframe {
-  width: 100%;
-  height: 500px; }
+  height: 500px;
+  width: 100%; }

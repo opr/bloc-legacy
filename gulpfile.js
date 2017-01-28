@@ -82,7 +82,8 @@ gulp.task('sass:lint', function() {
                 'pseudo-element': 0,
                 'placeholder-in-extend': 0,
                 'no-url-domains': 0,
-                'no-url-protocols': 0
+                'no-url-protocols': 0,
+                'mixins-before-declarations': 0
             }
         }))
         .pipe(sassLint.format())
