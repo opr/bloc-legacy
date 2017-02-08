@@ -11,11 +11,12 @@ $desktop                           : 1260px;
 | Colours                                         |
 *************************************************/
 
-$palette_a                        : #592941;
-$palette_b                        : #498467;
-$palette_c                        : #52B788;
-$palette_d                        : #B2D3A8;
-$palette_e                        : #0d0d0d;
+$white                            : #fff;
+$palette_a                        : #283044;
+$palette_b                        : #EBF5EE;
+$palette_c                        : #78A1BB;
+$palette_d                        : #BFA89E;
+$palette_e                        : #8B786D;
 
 /*************************************************|
 | Font Settings - sizes in px                     |
@@ -29,8 +30,6 @@ $numberfont                        : 'Muli', sans-serif;
 
 $basefontsize                      : 16;
 $lineheight                        : 20;
-$headersizes                       : 3, 2.25, 1.5, 1.313, 1.125, 1;
-$headermargins                     : 0.563, 0.625, 1.313, 1.313, 1.313, 0.75;
 
 $basefontcolor                     : $palette_e;
 
