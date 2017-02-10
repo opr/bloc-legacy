@@ -1,7 +1,7 @@
 // Include gulp
 var gulp = require('gulp'),
     textDomain = 'bloc',
-    appUrl = "bloc.local";
+    appUrl = "localhost:5001";
 
 // Include Our Plugins
 var jshint = require('gulp-jshint'),
@@ -25,8 +25,7 @@ var jshint = require('gulp-jshint'),
     bake = require('gulp-bake'),
     sassLint = require('gulp-sass-lint'),
     stylish = require('jshint-stylish'),
-    sort = require('gulp-sort'),
-    imagemin = require('gulp-imagemin');
+    sort = require('gulp-sort');
 
 
 var webpackConfig = require('./webpack.config.js'),
@@ -85,7 +84,9 @@ gulp.task('sass:lint', function() {
                 'no-url-domains': 0,
                 'no-url-protocols': 0,
                 'mixins-before-declarations': 0,
-                'property-sort-order': 0
+                'property-sort-order': 0,
+                'leading-zero': 0,
+                'no-color-literals': 0
             }
         }))
         .pipe(sassLint.format())
@@ -110,12 +111,6 @@ gulp.task('sass:compile', function () {
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('assets/styles/css'));
 });
-
-gulp.task('imagemin', () =>
-    gulp.src(['assets/img/**/*'])
-        .pipe(imagemin())
-        .pipe(gulp.dest('assets/dist/img/'))
-);
 
 // Concatenate & Minify JS
 gulp.task('scripts', ['lint'], function () {
