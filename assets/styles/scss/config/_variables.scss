@@ -1,4 +1,4 @@
-/*************************************************|
+ /*************************************************|
 | Breakpoints                                     |
 *************************************************/
 
@@ -11,7 +11,7 @@ $desktop                           : 1260px;
 | Colours                                         |
 *************************************************/
 
-$white                            : #fff;
+$white                         	  : #fff;
 $palette_a                        : #283044;
 $palette_b                        : #EBF5EE;
 $palette_c                        : #78A1BB;
@@ -30,6 +30,8 @@ $numberfont                        : 'Muli', sans-serif;
 
 $basefontsize                      : 16;
 $lineheight                        : 20;
+$headersizes                       : 3, 2.25, 1.5, 1.313, 1.125, 1;
+$headermargins                     : 0.563, 0.625, 1.313, 1.313, 1.313, 0.75;
 
 $basefontcolor                     : $palette_e;
 
