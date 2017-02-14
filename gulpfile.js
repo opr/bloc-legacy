@@ -101,7 +101,7 @@ gulp.task('sass:compile', function () {
         .pipe(sassGlobbing())
         .pipe(sass())
         .pipe(autoprefixer({
-            browsers: ['> 5%'],
+            browsers: ['last 2 versions'],
             cascade: false
         }))
         .pipe(gulp.dest('assets/styles/css/'))
