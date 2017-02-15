@@ -14,7 +14,6 @@
 | of them, this causes the container to have the  |
 | proper height.
 *************************************************/
-@import url("https://fonts.googleapis.com/css?family=Muli:400,300,200");
 .cf:after, .container:after {
   clear: both;
   content: '';
@@ -37,6 +36,21 @@
 | will be on a fresh canvas, delicious!  Just     |
 | some configuration then we can actually do some |
 | styling!
+*************************************************/
+/*************************************************|
+| Breakpoints                                     |
+*************************************************/
+/*************************************************|
+| Colours                                         |
+*************************************************/
+/*************************************************|
+| Font Settings - sizes in px                     |
+*************************************************/
+/*************************************************|
+| Container Variables                             |
+*************************************************/
+/*************************************************|
+| Transition Times                                |
 *************************************************/
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -68,7 +82,8 @@ footer, header, hgroup, menu, nav, section {
   display: block; }
 
 body {
-  line-height: 1; }
+  line-height: 1.4;
+  font-smoothing: antialiased; }
 
 ol, ul {
   list-style: none; }
@@ -85,37 +100,87 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/*************************************************|
-| Breakpoints                                     |
-*************************************************/
-/*************************************************|
-| Colours                                         |
-*************************************************/
-/*************************************************|
-| Font Settings - sizes in px                     |
-*************************************************/
-/*************************************************|
-| Container Variables                             |
-*************************************************/
-/*************************************************|
-| Transition Times                                |
-*************************************************/
+/* Rich text editor settings */
+a {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  color: #EA2533;
+  font-family: "InteloRegular", sans-serif;
+  border-bottom: 1px solid #EA2533;
+  text-decoration: none; }
+  a:hover {
+    color: #4A75E6;
+    border-bottom: 1px solid #4A75E6; }
+
+p {
+  font-size: 1rem;
+  font-family: "InteloRegular", sans-serif;
+  margin-bottom: 1.6rem; }
+
+em {
+  color: #EA2533;
+  font-family: "InteloBold", sans-serif; }
+
+i {
+  font-family: "InteloItalic", sans-serif;
+  font-style: normal; }
+
+b {
+  font-family: "InteloBold", sans-serif; }
+
+ul, ol {
+  margin-bottom: 1.4rem;
+  line-height: 1.6rem; }
+
+ul li {
+  list-style-type: disc;
+  list-style-position: inside;
+  margin-left: 20px; }
+
+ol li {
+  list-style-type: decimal;
+  list-style-position: outside;
+  margin-left: 35px;
+  text-indent: 15px; }
+
+sup {
+  vertical-align: super;
+  font-size: 0.7rem; }
+
+sub {
+  vertical-align: sub;
+  font-size: 0.7rem; }
+
+img {
+  margin-bottom: 30px;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  display: block; }
+
+h2 {
+  color: #EA2533; }
+
 /*************************************************|
 | Put your fonts in here                          |
 *************************************************/
 @font-face {
-  font-family: 'CenturyGothic';
-  src: url("./../fonts/CenturyGothic.eot");
-  src: local("☺"), url("./../fonts/CenturyGothic.ttf"); }
+  font-family: 'InteloRegular';
+  src: url("./../fonts/InteloRegular.eot");
+  src: local("☺"), url("../../fonts/InteloRegular.ttf"); }
 
 @font-face {
-  font-family: 'CenturyGothicBold';
-  src: url("./../fonts/CenturyGothicBold.eot");
-  src: local("☺"), url("../../fonts/CenturyGothicBold.ttf"); }
+  font-family: 'InteloBold';
+  src: url("./../fonts/InteloBold.eot");
+  src: local("☺"), url("../../fonts/InteloBold.ttf"); }
+
+@font-face {
+  font-family: 'InteloItalic';
+  src: url("./../fonts/InteloItalic.eot");
+  src: local("☺"), url("../../fonts/InteloItalic.ttf"); }
 
 html {
-  color: #8B786D;
-  font-family: "Muli", sans-serif;
+  color: #000;
+  font-family: "InteloRegular", sans-serif;
   font-size: 16px; }
 
 h1,
@@ -124,37 +189,88 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "CenturyGothic", sans-serif;
-  font-weight: 700; }
+  font-family: "InteloRegular", sans-serif;
+  font-weight: normal; }
 
 h1 {
   font-size: 3em;
-  margin: 0.563em 0; }
+  margin-bottom: 0.563em; }
 
 h2 {
   font-size: 2.25em;
-  margin: 0.625em 0; }
+  margin-bottom: 0.625em; }
 
 h3 {
   font-size: 1.5em;
-  margin: 1.313em 0; }
+  margin-bottom: 1.313em; }
 
 h4 {
   font-size: 1.313em;
-  margin: 1.313em 0; }
+  margin-bottom: 1.313em; }
 
 h5 {
   font-size: 1.125em;
-  margin: 1.313em 0; }
+  margin-bottom: 1.313em; }
 
 h6 {
   font-size: 1em;
-  margin: 0.75em 0; }
+  margin-bottom: 0.75em; }
 
 /*************************************************|
 | Now we can actually get on with making the site |
 | styles                                          |
 *************************************************/
+body:before {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
+
+body.\--menu-open {
+  position: relative; }
+  body.\--menu-open:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    content: '';
+    background-color: rgba(0, 0, 0, 0.5); }
+
+.carousel {
+  width: 100%;
+  height: 50vh;
+  min-height: 400px;
+  background: #000;
+  position: relative;
+  float: left; }
+  .carousel__slide {
+    display: block;
+    background: url("http://placehold.it/1000x800");
+    background-size: cover;
+    background-position: center;
+    margin: 0; }
+
+.slick-prev, .slick-next {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  background: none;
+  cursor: pointer; }
+
+.slick-prev {
+  left: 20px;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg); }
+
+.slick-next {
+  right: 20px;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg); }
+
 /*************************************************|
 | Container                                       |
 *************************************************/
@@ -172,6 +288,265 @@ h6 {
   .container.\----d75 {
     width: 75%; }
 
+.content-container {
+  float: left;
+  box-sizing: border-box;
+  padding: 30px; }
+  @media (min-width: 1260px) {
+    .content-container {
+      padding: 60px; } }
+
+.footer-content {
+  float: left;
+  width: 100%;
+  background: #262626;
+  padding: 60px 30px;
+  box-sizing: border-box; }
+  @media (min-width: 1260px) {
+    .footer-content {
+      padding: 60px; } }
+  .footer-content__column {
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 30px; }
+    @media (min-width: 560px) {
+      .footer-content__column {
+        width: 45%;
+        margin-right: 10%; }
+        .footer-content__column:nth-child(2n+2) {
+          margin-right: 0; } }
+    @media (min-width: 1260px) {
+      .footer-content__column {
+        width: 23.5%;
+        margin-right: 2%;
+        margin-bottom: 0; }
+        .footer-content__column:last-child {
+          margin-right: 0; }
+        .footer-content__column:nth-child(2) {
+          margin-right: 2%; } }
+    .footer-content__column__blog {
+      width: 100%; }
+      .footer-content__column__blog__image {
+        float: left;
+        width: 33.333%;
+        height: 80px;
+        background: url("http://placehold.it/160x160");
+        background-size: cover;
+        background-position: center; }
+      .footer-content__column__blog__content {
+        float: left;
+        width: 66.666%;
+        color: #fef6f7;
+        padding-left: 30px;
+        box-sizing: border-box; }
+        .footer-content__column__blog__content__title {
+          width: 100%;
+          margin-bottom: 10px; }
+        .footer-content__column__blog__content__text {
+          width: 100%; }
+    .footer-content__column__image {
+      width: 70%; }
+    .footer-content__column__text {
+      color: #fff; }
+    .footer-content__column__title {
+      color: #fff;
+      display: block;
+      border-bottom: 1px solid #4d4d4d;
+      padding-bottom: 5px; }
+    .footer-content__column__twitter {
+      position: relative;
+      float: right;
+      width: 90%;
+      color: #fff;
+      font-size: 0.7rem;
+      line-height: 1.1rem;
+      padding-left: 10px;
+      box-sizing: border-box; }
+      .footer-content__column__twitter:before {
+        font-family: 'fontawesome';
+        content: '\f099';
+        position: absolute;
+        left: -25px;
+        top: 0;
+        color: #EA2533;
+        font-size: 1.6rem; }
+      .footer-content__column__twitter__title {
+        width: 100%;
+        margin-bottom: 10px; }
+      .footer-content__column__twitter__text__link {
+        color: #EA2533;
+        text-decoration: none; }
+    .footer-content__column__contact {
+      position: relative;
+      float: right;
+      width: 90%;
+      color: #fff;
+      padding-left: 10px;
+      box-sizing: border-box; }
+      .footer-content__column__contact:before {
+        font-family: 'fontawesome';
+        content: '\f015';
+        position: absolute;
+        left: -25px;
+        top: 0;
+        color: #EA2533; }
+      .footer-content__column__contact__telephone {
+        position: relative;
+        margin-top: 20px;
+        letter-spacing: 1px; }
+        .footer-content__column__contact__telephone:before {
+          font-family: 'fontawesome';
+          content: '\f095';
+          position: absolute;
+          left: -35px;
+          top: 0;
+          color: #EA2533; }
+      .footer-content__column__contact__email {
+        position: relative;
+        margin-top: 20px; }
+        .footer-content__column__contact__email:before {
+          font-family: 'fontawesome';
+          content: '\f003';
+          position: absolute;
+          left: -35px;
+          top: 0;
+          color: #EA2533; }
+        .footer-content__column__contact__email__link {
+          color: #EA2533;
+          text-decoration: none; }
+
+.footer {
+  background-color: #EA2533;
+  box-sizing: border-box;
+  color: #fff;
+  float: left;
+  min-height: 80px;
+  padding: 30px;
+  width: 100%; }
+  @media (min-width: 1260px) {
+    .footer {
+      padding: 30px 60px; } }
+  .footer__content-container {
+    margin: 0 auto;
+    font-size: 0.8rem; }
+    .footer__content-container__column {
+      float: left;
+      width: 100%;
+      font-weight: normal;
+      text-align: center; }
+      @media (min-width: 560px) {
+        .footer__content-container__column {
+          width: 50%;
+          text-align: left; } }
+      .footer__content-container__column__link {
+        text-decoration: none;
+        color: #fff;
+        font-family: "InteloBold", sans-serif;
+        opacity: 0.8;
+        border-bottom: 1px solid #fff; }
+        .footer__content-container__column__link:hover {
+          opacity: 1;
+          color: #fff;
+          border-bottom: 1px solid #fff; }
+      .footer__content-container__column.\--credit {
+        text-align: center;
+        margin-top: 8px; }
+        @media (min-width: 560px) {
+          .footer__content-container__column.\--credit {
+            text-align: right;
+            margin-top: 0; } }
+
+.header {
+  float: left;
+  width: 100%;
+  background: #262626;
+  padding: 30px;
+  box-sizing: border-box; }
+  @media (min-width: 1260px) {
+    .header {
+      padding: 30px 60px; } }
+  .header__logo {
+    float: left;
+    width: 100%; }
+    @media (min-width: 960px) {
+      .header__logo {
+        width: 30%; } }
+    .header__logo__image {
+      width: 300px;
+      height: 80px;
+      background: url("../../../assets/img/logo-white.png");
+      background-position: center;
+      background-size: cover; }
+  .header__navigation {
+    width: 80%;
+    max-width: 400px;
+    height: 100vh;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    background: #262626;
+    padding: 30px;
+    box-sizing: border-box; }
+    .header__navigation__menu__item {
+      list-style: none;
+      display: block;
+      width: 100%;
+      cursor: pointer;
+      margin-bottom: 10px; }
+      .header__navigation__menu__item__link {
+        color: #fff;
+        border-bottom: none; }
+        .header__navigation__menu__item__link:hover {
+          color: #EA2533;
+          border-bottom: none; }
+        .header__navigation__menu__item__link:focus {
+          color: #EA2533;
+          border-bottom: none; }
+    @media (min-width: 1260px) {
+      .header__navigation {
+        background: none;
+        height: 80px;
+        width: 70%;
+        max-width: 70%;
+        float: right;
+        position: relative;
+        padding: 0; }
+        .header__navigation__menu {
+          float: right;
+          display: block;
+          height: 80px; }
+          .header__navigation__menu__item {
+            text-align: right;
+            display: inline-block;
+            line-height: 80px;
+            list-style: none;
+            width: auto;
+            margin-bottom: 0; } }
+
 iframe {
   height: 500px;
   width: 100%; }
+
+.skip-link {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #EA2533;
+  padding: 20px;
+  color: white;
+  border-bottom: none;
+  -webkit-transform: translateY(-80px);
+  transform: translateY(-80px); }
+  .skip-link:focus {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px); }
+  .skip-link:not(:focus) {
+    -webkit-transition-delay: 1s;
+    transition-delay: 1s; }
+  .skip-link:hover {
+    border-bottom: none;
+    background-color: #c91320;
+    color: #fff; }

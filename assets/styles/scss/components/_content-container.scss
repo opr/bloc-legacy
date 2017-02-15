@@ -1,0 +1,9 @@
+@include component(content-container) {
+	float: left;
+	box-sizing: border-box;
+	padding: 30px;
+
+	@include bp($desktop) {
+		padding: 60px;
+	}
+}

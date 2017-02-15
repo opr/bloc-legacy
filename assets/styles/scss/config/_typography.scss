@@ -5,15 +5,15 @@
   h4,
   h5,
   h6 {
-    font-family: $boldfont;
-    font-weight: 700;
+    font-family: $basefont;
+    font-weight: normal;
   }
   @for $i from 1 through 6 {
     h#{$i} {
       $value: nth($headersizes, $i);
       $size: if(($value * $factor) < 1, 1, $value * $factor);
       font-size: $size * 1em;
-      margin: (nth($headermargins, $i) * 1em) 0;
+      margin-bottom: (nth($headermargins, $i) * 1em);
     }
   }
 }

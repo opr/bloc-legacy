@@ -1,0 +1,92 @@
+@include component(header) {
+	float: left;
+	width: 100%;
+	background: lighten($black, 15%);
+	padding: 30px;
+	box-sizing: border-box;
+
+	@include bp($desktop) {
+		padding: 30px 60px;
+	}
+
+	@include part(logo) {
+		float: left;
+		width: 100%;
+
+		@include bp($landscapetablet) {
+			width: 30%;
+		}
+
+		@include part(image) {
+			width: 300px;
+			height: 80px;
+			background: url("../../../assets/img/logo-white.png");
+			background-position: center;
+			background-size: cover;
+		}
+	}
+
+	@include part(navigation) {
+		width: 80%;
+		max-width: 400px;
+		height: 100vh;
+		position: fixed;
+		z-index: 10;
+		top: 0;
+		right: 0;
+		background: lighten($black, 15%);
+		padding: 30px;
+		box-sizing: border-box;
+		
+		@include part(menu) {
+
+			@include part(item) {
+				list-style: none;
+				display: block;
+				width: 100%;
+				cursor: pointer;
+				margin-bottom: 10px;
+
+				@include part(link) {
+					color: $white;
+					border-bottom: none;
+
+					&:hover {
+						color: $palette_a;
+						border-bottom: none;
+					}
+
+					&:focus {
+						color: $palette_a;
+						border-bottom: none;
+					}
+				}
+			}
+		}
+
+		@include bp($desktop) {
+			background: none;
+			height: 80px;
+			width: 70%;
+			max-width: 70%;
+			float: right;
+			position: relative;
+			padding: 0;
+
+			@include part(menu) {
+			float: right;
+			display: block;
+			height: 80px;
+
+				@include part(item) {
+					text-align: right;
+					display: inline-block;
+					line-height: 80px;
+					list-style: none;
+					width: auto;
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+}

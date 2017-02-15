@@ -2,17 +2,20 @@
 | Put your fonts in here                          |
 *************************************************/
 
-@import url('https://fonts.googleapis.com/css?family=Muli:400,300,200');
-
 @font-face {
-  font-family: 'CenturyGothic';
-  src: url('./../fonts/CenturyGothic.eot');
-  src: local('☺'), url('./../fonts/CenturyGothic.ttf');
+  font-family: 'InteloRegular';
+  src: url('./../fonts/InteloRegular.eot');
+  src: local('☺'), url('../../fonts/InteloRegular.ttf');
 }
 @font-face {
-  font-family: 'CenturyGothicBold';
-  src: url('./../fonts/CenturyGothicBold.eot');
-  src: local('☺'), url('../../fonts/CenturyGothicBold.ttf');
+  font-family: 'InteloBold';
+  src: url('./../fonts/InteloBold.eot');
+  src: local('☺'), url('../../fonts/InteloBold.ttf');
+}
+@font-face {
+  font-family: 'InteloItalic';
+  src: url('./../fonts/InteloItalic.eot');
+  src: local('☺'), url('../../fonts/InteloItalic.ttf');
 }
 
 html {

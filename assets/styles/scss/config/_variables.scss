@@ -12,28 +12,29 @@ $desktop                           : 1260px;
 *************************************************/
 
 $white                         	  : #fff;
-$palette_a                        : #283044;
-$palette_b                        : #EBF5EE;
-$palette_c                        : #78A1BB;
-$palette_d                        : #BFA89E;
-$palette_e                        : #8B786D;
+$black							  : #000;
+$palette_a                        : #EA2533;
+$palette_b                        : #4A75E6;
+$palette_c                        : #FEBC1F;
+$palette_d                        : #4470E6;
+$palette_e                        : #08AF22;
 
 /*************************************************|
 | Font Settings - sizes in px                     |
 *************************************************/
 
-$basefont                          : 'Muli', sans-serif;
-$boldfont                          : 'CenturyGothic', sans-serif;
-$displayfont                       : 'CenturyGothic', sans-serif;
-$italicfont                        : 'Muli', sans-serif;
-$numberfont                        : 'Muli', sans-serif;
+$basefont                          : 'InteloRegular', sans-serif;
+$boldfont                          : 'InteloBold', sans-serif;
+$displayfont                       : 'InteloRegular', sans-serif;
+$italicfont                        : 'InteloItalic', sans-serif;
+$numberfont                        : 'InteloRegular', sans-serif;
 
 $basefontsize                      : 16;
 $lineheight                        : 20;
 $headersizes                       : 3, 2.25, 1.5, 1.313, 1.125, 1;
 $headermargins                     : 0.563, 0.625, 1.313, 1.313, 1.313, 0.75;
 
-$basefontcolor                     : $palette_e;
+$basefontcolor                     : $black;
 
 /*************************************************|
 | Container Variables                             |
