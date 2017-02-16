@@ -1,0 +1,38 @@
+@include component(breadcrumbs) {
+
+  @include part(list) {
+    @extend .cf;
+
+    @include part(item) {
+      display: inline-block;
+      float: left;
+      margin-right: 25px;
+      position: relative;
+
+      &:after {
+        font-family: "FontAwesome";
+        content: "\f061";
+        color: $palette_e;
+        display: block;
+        @include font-size(12);
+        position: absolute;
+        right: -17px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &:last-child {
+
+        &:after {
+          display: none;
+        }
+      }
+
+      @include part(link) {
+        @include font-size(14);
+        color: $palette_a;
+        text-decoration: none;
+      }
+    }
+  }
+}

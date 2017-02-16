@@ -14,7 +14,7 @@
 | of them, this causes the container to have the  |
 | proper height.
 *************************************************/
-.cf:after, .container:after {
+.cf:after, .breadcrumbs__list:after, .container:after {
   clear: both;
   content: '';
   display: block;
@@ -234,6 +234,31 @@ body.\--menu-open {
     left: 0;
     content: '';
     background-color: rgba(0, 0, 0, 0.5); }
+
+.breadcrumbs__list__item {
+  display: inline-block;
+  float: left;
+  margin-right: 25px;
+  position: relative; }
+  .breadcrumbs__list__item:after {
+    font-family: "FontAwesome";
+    content: "\f061";
+    color: #08AF22;
+    display: block;
+    font-size: 12px;
+    font-size: 0.75rem;
+    position: absolute;
+    right: -17px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%); }
+  .breadcrumbs__list__item:last-child:after {
+    display: none; }
+  .breadcrumbs__list__item__link {
+    font-size: 14px;
+    font-size: 0.875rem;
+    color: #EA2533;
+    text-decoration: none; }
 
 .carousel {
   width: 100%;
@@ -494,7 +519,8 @@ body.\--menu-open {
       display: block;
       width: 100%;
       cursor: pointer;
-      margin-bottom: 10px; }
+      margin-bottom: 10px;
+      margin-left: 0; }
       .header__navigation__menu__item__link {
         color: #fff;
         border-bottom: none; }
@@ -523,7 +549,8 @@ body.\--menu-open {
             line-height: 80px;
             list-style: none;
             width: auto;
-            margin-bottom: 0; } }
+            margin-bottom: 0;
+            margin-left: 20px; } }
 
 iframe {
   height: 500px;
