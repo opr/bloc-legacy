@@ -8,6 +8,7 @@
 	color: white;
 	border-bottom: none;
 	transform: translateY(-80px);
+	z-index: 1;
 
 	&:focus {
 		transform: translateY(0px);

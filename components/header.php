@@ -1,8 +1,15 @@
 <header class="header">
 	<div class="header__logo">
-		<div class="header__logo__image"></div>
+		<?php include "components/svg-logo.php" ?>
 	</div>
 	<nav class="header__navigation" role="navigation">
+		<a href="#" class="header__navigation__mobile-link" tabindex="-1">
+			<div class="header__navigation__mobile-menu-icon">
+				<span class="header__navigation__mobile-menu-icon__bar"></span>
+				<span class="header__navigation__mobile-menu-icon__bar"></span>
+				<span class="header__navigation__mobile-menu-icon__bar"></span>
+			</div>
+		</a>
 		<ul class="header__navigation__menu" role="menubar">
 			<li class="header__navigation__menu__item" role="presentation"><a href="#" class="header__navigation__menu__item__link" role="menuitem">Home</a></li>
 			<li class="header__navigation__menu__item" role="presentation"><a href="#" class="header__navigation__menu__item__link" role="menuitem">Menu item 1</a></li>

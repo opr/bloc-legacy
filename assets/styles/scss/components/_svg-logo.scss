@@ -1,0 +1,17 @@
+@include component(svg-logo) {
+	width: 80%;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+
+	@include part(element) {
+
+		@include option(colour-a) {
+			fill: $white;
+		}
+
+		@include option(colour-b) {
+			fill: $palette_a;
+		}
+	}
+}

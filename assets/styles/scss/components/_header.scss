@@ -11,10 +11,14 @@
 
 	@include part(logo) {
 		float: left;
-		width: 100%;
+		width: 240px;
+		max-width: 300px;
+		height: 80px;
+		position: relative;
 
 		@include bp($landscapetablet) {
-			width: 30%;
+			width: 25%;
+			max-width: 300px;
 		}
 
 		@include part(image) {
@@ -27,6 +31,7 @@
 	}
 
 	@include part(navigation) {
+		@include transition(all, ease);
 		width: 100%;
 		max-width: 400px;
 		height: 100vh;
@@ -37,6 +42,11 @@
 		background: lighten($black, 15%);
 		padding: 40px;
 		box-sizing: border-box;
+		transform: translateX(100%);
+
+		@include option(active) {
+			transform: translateX(0px);
+		}
 		
 		@include part(menu) {
 
@@ -62,7 +72,7 @@
 					line-height: 80px;
 					position: relative;
 
-					&:hover {
+					&:hover, &:focus {
 						color: $palette_a;
 						border-bottom: none;
 
@@ -91,14 +101,81 @@
 			}
 		}
 
-		@include bp($desktop) {
+		@include part(mobile-link) {
+			position: absolute;
+			top: 30px;
+			left: -80px;
+			width: 80px;
+			height: 80px;
+			padding: 30px 25px;
+			box-sizing: border-box;
+			background: $palette_a;
+			cursor: pointer;
+			border-bottom: none;
+
+			&:hover {
+				border-bottom: none;
+			}
+
+			@include bp($landscapetablet) {
+				display: none;
+			}
+		}
+
+		@include part(mobile-menu-icon) {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: 80px;
+			height: 80px;
+			padding: 30px 25px;
+			box-sizing: border-box;
+
+			@include part(bar) {
+				@include transition(all, ease);
+				position: relative;
+				display: block;
+				height: 1px;
+				width: 30px;
+				background: $white;
+				z-index: 10;
+				margin-bottom: 9px;
+
+				@include option(open) {
+
+					&:nth-child(1) {
+						top: 10px;
+						transform: rotate(135deg);
+					}
+
+					&:nth-child(2) {
+						opacity: 0;
+					}
+
+					&:nth-child(3) {
+						bottom: 10px;
+						transform: rotate(-135deg);
+					}
+				}
+			}
+
+			@include bp($landscapetablet) {
+				display: none;
+			}
+		}
+
+		@include bp($landscapetablet) {
+			transition: none;
 			background: none;
 			height: 80px;
-			width: 70%;
-			max-width: 70%;
+			width: 75%;
+			max-width: 75%;
 			float: right;
 			position: relative;
 			padding: 0;
+			transform: translateX(0px);
 
 			@include part(menu) {
 			float: right;
