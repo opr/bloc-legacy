@@ -1,26 +1,26 @@
 @include component(skip-link) {
-	display: block;
-	position: fixed;
-	top: 0;
-	left: 0;
-	background-color: $palette_a;
-	padding: 20px;
-	color: white;
-	border-bottom: none;
-	transform: translateY(-80px);
-	z-index: 1;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $palette_a;
+  padding: 20px;
+  color: white;
+  border-bottom: none;
+  transform: translateY(-80px);
+  z-index: 1;
 
-	&:focus {
-		transform: translateY(0px);
-	}
+  &:focus {
+    transform: translateY(0px);
+  }
 
-	&:not(:focus) {
-		transition-delay: 1s;
-	}
+  &:not(:focus) {
+    transition-delay: 1s;
+  }
 
-	&:hover {
-		border-bottom: none;
-		background-color: darken($palette_a, 10%);
-		color: $white;
-	}
+  &:hover {
+    border-bottom: none;
+    background-color: darken($palette_a, 10%);
+    color: $white;
+  }
 }

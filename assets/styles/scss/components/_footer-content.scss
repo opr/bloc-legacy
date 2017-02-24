@@ -1,172 +1,172 @@
 @include component(footer-content) {
-	float: left;
-	width: 100%;
-	background: lighten($black, 15%);
-	padding: 60px 30px;
-	box-sizing: border-box;
+  float: left;
+  width: 100%;
+  background: lighten($black, 15%);
+  padding: 60px 30px;
+  box-sizing: border-box;
 
-	@include bp($desktop) {
-		padding: 60px;
-	}
+  @include bp($desktop) {
+    padding: 60px;
+  }
 
-	@include part(column) {
-		float: left;
-		width: 100%;
-		box-sizing: border-box;
-		margin-bottom: 30px;
+  @include part(column) {
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 30px;
 
-		@include bp($tablet) {
-			width: 45%;
-			margin-right: 10%;
+    @include bp($tablet) {
+      width: 45%;
+      margin-right: 10%;
 
-			&:nth-child(2n+2) {
-				margin-right: 0;
-			}
-		}
+      &:nth-child(2n+2) {
+        margin-right: 0;
+      }
+    }
 
-		@include bp($desktop) {
-			width: 23.5%;
-			margin-right: 2%;
-			margin-bottom: 0;
+    @include bp($desktop) {
+      width: 23.5%;
+      margin-right: 2%;
+      margin-bottom: 0;
 
-			&:last-child {
-				margin-right: 0;
-			}
+      &:last-child {
+        margin-right: 0;
+      }
 
-			&:nth-child(2) {
-				margin-right: 2%;
-			}
-		}
+      &:nth-child(2) {
+        margin-right: 2%;
+      }
+    }
 
-		@include part(blog) {
-			width: 100%;
+    @include part(blog) {
+      width: 100%;
 
-			@include part(image) {
-				float: left;
-				width: 33.333%;
-				height: 80px;
-				background: url('http://placehold.it/160x160');
-				background-size: cover;
-				background-position: center;
-			}
+      @include part(image) {
+        float: left;
+        width: 33.333%;
+        height: 80px;
+        background: url('http://placehold.it/160x160');
+        background-size: cover;
+        background-position: center;
+      }
 
-			@include part(content) {
-				float: left;
-				width: 66.666%;
-				color: lighten($palette_a, 45%);
-				padding-left: 30px;
-				box-sizing: border-box;
+      @include part(content) {
+        float: left;
+        width: 66.666%;
+        color: lighten($palette_a, 45%);
+        padding-left: 30px;
+        box-sizing: border-box;
 
-				@include part(title) {
-					width: 100%;
-					margin-bottom: 10px;
-				}
+        @include part(title) {
+          width: 100%;
+          margin-bottom: 10px;
+        }
 
-				@include part(text) {
-					width: 100%;
-				}
-			}
-		}
+        @include part(text) {
+          width: 100%;
+        }
+      }
+    }
 
-		@include part(image) {
-			width: 70%;
-		}
+    @include part(image) {
+      width: 70%;
+    }
 
-		@include part(text) {
-			color: $white;
-		}
+    @include part(text) {
+      color: $white;
+    }
 
-		@include part(title) {
-			color: $white;
-			display: block;
-			border-bottom: 1px solid lighten($black, 30%);
-			padding-bottom: 5px;
-		}
+    @include part(title) {
+      color: $white;
+      display: block;
+      border-bottom: 1px solid lighten($black, 30%);
+      padding-bottom: 5px;
+    }
 
-		@include part(twitter) {
-			position: relative;
-			float: right;
-			width: 90%;
-			color: $white;
-			font-size: 0.7rem;
-			line-height: 1.1rem;
-			padding-left: 10px;
-			box-sizing: border-box;
+    @include part(twitter) {
+      position: relative;
+      float: right;
+      width: 90%;
+      color: $white;
+      font-size: 0.7rem;
+      line-height: 1.1rem;
+      padding-left: 10px;
+      box-sizing: border-box;
 
-			&:before {
-				font-family: 'fontawesome';
-				content: '\f099';
-				position: absolute;
-				left: -25px;
-				top: 0;
-				color: $palette_a;
-				font-size: 1.6rem;
-			}
+      &:before {
+        font-family: 'fontawesome';
+        content: '\f099';
+        position: absolute;
+        left: -25px;
+        top: 0;
+        color: $palette_a;
+        font-size: 1.6rem;
+      }
 
-			@include part(title) {
-				width: 100%;
-				margin-bottom: 10px;
-			}
+      @include part(title) {
+        width: 100%;
+        margin-bottom: 10px;
+      }
 
-			@include part(text) {
+      @include part(text) {
 
-				@include part(link) {
-					color: $palette_a;
-					text-decoration: none;
-				}
-			}
-		}
+        @include part(link) {
+          color: $palette_a;
+          text-decoration: none;
+        }
+      }
+    }
 
-		@include part(contact) {
-			position: relative;
-			float: right;
-			width: 90%;
-			color: $white;
-			padding-left: 10px;
-			box-sizing: border-box;
+    @include part(contact) {
+      position: relative;
+      float: right;
+      width: 90%;
+      color: $white;
+      padding-left: 10px;
+      box-sizing: border-box;
 
-			&:before {
-				font-family: 'fontawesome';
-				content: '\f015';
-				position: absolute;
-				left: -25px;
-				top: 0;
-				color: $palette_a;
-			}
+      &:before {
+        font-family: 'fontawesome';
+        content: '\f015';
+        position: absolute;
+        left: -25px;
+        top: 0;
+        color: $palette_a;
+      }
 
-			@include part(telephone) {
-				position: relative;
-				margin-top: 20px;
-				letter-spacing: 1px;
+      @include part(telephone) {
+        position: relative;
+        margin-top: 20px;
+        letter-spacing: 1px;
 
-				&:before {
-					font-family: 'fontawesome';
-					content: '\f095';
-					position: absolute;
-					left: -35px;
-					top: 0;
-					color: $palette_a;
-				}
-			}
+        &:before {
+          font-family: 'fontawesome';
+          content: '\f095';
+          position: absolute;
+          left: -35px;
+          top: 0;
+          color: $palette_a;
+        }
+      }
 
-			@include part(email) {
-				position: relative;
-				margin-top: 20px;
+      @include part(email) {
+        position: relative;
+        margin-top: 20px;
 
-				&:before {
-					font-family: 'fontawesome';
-					content: '\f003';
-					position: absolute;
-					left: -35px;
-					top: 0;
-					color: $palette_a;
-				}
+        &:before {
+          font-family: 'fontawesome';
+          content: '\f003';
+          position: absolute;
+          left: -35px;
+          top: 0;
+          color: $palette_a;
+        }
 
-				@include part(link) {
-					color: $palette_a;
-					text-decoration: none;
-				}
-			}
-		}
-	}
+        @include part(link) {
+          color: $palette_a;
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }

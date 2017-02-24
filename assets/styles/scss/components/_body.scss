@@ -1,11 +1,11 @@
 body {
 
-	&:before {
-		@include transition(all, ease);
-	}
+  &:before {
+    @include transition(all, ease);
+  }
 
-	@include option(menu-open) {
-		@include rgba-overlay(0.5);
-		position: relative;
-	}
+  @include option(menu-open) {
+    @include rgba-overlay(0.5);
+    position: relative;
+  }
 }

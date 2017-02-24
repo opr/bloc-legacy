@@ -1,39 +1,39 @@
 @include component(intro-section) {
-	@extend .cf;
-	float: left;
-	width: 100%;
-	height: calc(100vh - 140px);
-	min-height: 550px;
-	overflow: hidden;
-	text-align: center;
-	position: relative;
+  @extend .cf;
+  float: left;
+  width: 100%;
+  height: calc(100vh - 140px);
+  min-height: 550px;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
 
-	@include part(cta) {
-		position: absolute;
-		top: 30%;
-		left: 50%;
-		transform: translateX(-50%);
-	}
+  @include part(cta) {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
-	@include part(title) {
-		color: white;
-		line-height: 3.4rem;
-	}
+  @include part(title) {
+    color: white;
+    line-height: 3.4rem;
+  }
 
-	@include part(video) {
-		max-width: 100%;
-		object-fit: cover;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		min-width: 100%;
-		min-height: 100%;
-		width: auto;
-		height: auto;
-		z-index: 0;
-		transform: translateX(-50%) translateY(-50%);
-		background-size: cover;
-		overflow-x: hidden;
-		box-sizing: border-box;
-	}
+  @include part(video) {
+    max-width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
 }
