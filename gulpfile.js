@@ -64,11 +64,19 @@ gulp.task('lint', function () {
         .pipe(jshint.reporter('fail'));
 });
 
-gulp.task('sass:lint', function() {
-    return gulp.src(['!assets/styles/scss/config/_reset.scss', '!assets/styles/scss/config/_variables.scss',  '!assets/styles/scss/config/_fonts.scss', '!assets/styles/scss/mixins/_font-size.scss', 'assets/styles/scss/**/*.scss'])
+gulp.task('sass:lint', function () {
+    return gulp.src([
+            '!assets/styles/scss/config/_reset.scss',
+            '!assets/styles/scss/config/_variables.scss',
+            '!assets/styles/scss/config/_fonts.scss',
+            '!assets/styles/scss/mixins/_font-size.scss',
+            '!assets/styles/scss/mixins/_rgba.scss',
+            'assets/styles/scss/**/*.scss'
+        ])
         .pipe(sassLint({
             options: {
-                formatter: 'stylish'
+                formatter: 'stylish',
+                'max-warnings': 1
             },
             rules: {
                 'no-ids': 2, // Severity 0 (disabled)
@@ -86,11 +94,11 @@ gulp.task('sass:lint', function() {
             }
         }))
         .pipe(sassLint.format())
-        .pipe(sassLint.failOnError())
+        .pipe(sassLint.failOnError());
 });
 
 // Compile Our Sass
-gulp.task('sass:compile', function () {
+gulp.task('sass:compile', ['sass:lint'], function () {
 
     return gulp.src('assets/styles/scss/**/*.scss')
         .pipe(plumber({errorHandler: errorAlert}))
