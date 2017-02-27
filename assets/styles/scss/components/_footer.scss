@@ -13,7 +13,7 @@
 
   @include part(content-container) {
     margin: 0 auto;
-    font-size: 0.8rem;
+    font-size: .8rem;
 
     @include part(column) {
       float: left;
@@ -30,7 +30,7 @@
         text-decoration: none;
         color: $white;
         font-family: $boldfont;
-        opacity: 0.8;
+        opacity: .8;
         border-bottom: 1px solid $white;
 
         &:hover {

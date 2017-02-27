@@ -5,7 +5,7 @@ body {
   }
 
   @include option(menu-open) {
-    @include rgba-overlay(0.5);
+    @include rgba-overlay(.5);
     position: relative;
   }
 }

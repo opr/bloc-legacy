@@ -3,8 +3,7 @@
 	 viewBox="0 0 160 40" enable-background="new 0 0 160 40" xml:space="preserve">
 	<switch>
 		<foreignObject requiredExtensions="&ns_ai;" x="0" y="0" width="1" height="1">
-			<i:pgfRef  xlink:href="#adobe_illustrator_pgf">
-			</i:pgfRef>
+
 		</foreignObject>
 		<g i:extraneous="self">
 			<g>

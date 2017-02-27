@@ -39,7 +39,9 @@
     }
 
     @include part(blog) {
+      float: left;
       width: 100%;
+      margin-bottom: 30px;
 
       @include part(image) {
         float: left;
@@ -53,13 +55,15 @@
       @include part(content) {
         float: left;
         width: 66.666%;
-        color: lighten($palette_a, 45%);
         padding-left: 30px;
         box-sizing: border-box;
+        color: $white;
+        font-size: .9rem;
 
         @include part(title) {
+          color: $palette_a;
           width: 100%;
-          margin-bottom: 10px;
+          margin-bottom: 5px;
         }
 
         @include part(text) {
@@ -74,6 +78,7 @@
 
     @include part(text) {
       color: $white;
+      font-size: .9rem;
     }
 
     @include part(title) {
@@ -88,10 +93,11 @@
       float: right;
       width: 90%;
       color: $white;
-      font-size: 0.7rem;
+      font-size: .9rem;
       line-height: 1.1rem;
       padding-left: 10px;
       box-sizing: border-box;
+      margin-bottom: 30px;
 
       &:before {
         font-family: 'fontawesome';
@@ -106,6 +112,7 @@
       @include part(title) {
         width: 100%;
         margin-bottom: 10px;
+        font-size: 1rem;
       }
 
       @include part(text) {
@@ -124,6 +131,7 @@
       color: $white;
       padding-left: 10px;
       box-sizing: border-box;
+      font-size: .9rem;
 
       &:before {
         font-family: 'fontawesome';

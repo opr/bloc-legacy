@@ -168,6 +168,9 @@ function concatExternalScripts(min = false) {
     return () => {
         return gulp.src([
                 /** put your libraries here **/
+                'assets/vendor/jquery/dist/jquery.min.js',
+                'assets/vendor/polyfill/browser-polyfill.min.js',
+                'assets/vendor/slick/slick.min.js',
                 'assets/js/dist/bloc' + (min ? '.min' : '') + '.js'
             ])
             .pipe(concat('bloc' + (min ? '.min' : '') + '.js'))

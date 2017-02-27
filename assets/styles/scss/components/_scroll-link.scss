@@ -8,10 +8,10 @@
   margin-left: -100px;
   display: none;
   cursor: pointer;
-  border-bottom: none;
+  border-bottom: 0;
 
   &:hover {
-    border-bottom: none;
+    border-bottom: 0;
   }
 
   @include bp($tablet) {
@@ -20,8 +20,8 @@
 
   @include part(text) {
     @include transition(all, ease);
-    font-size: 0.8rem;
-    color: white;
+    font-size: .8rem;
+    color: $white;
     width: 100%;
     text-align: center;
     text-transform: uppercase;
@@ -35,11 +35,11 @@
 
   @include part(arrow) {
     @include transition(all, ease);
-    margin: 0 auto 10px auto;
+    margin: 0 auto 10px;
     width: 15px;
     height: 15px;
-    border-right: 1px solid white;
-    border-bottom: 1px solid white;
+    border-right: 1px solid $white;
+    border-bottom: 1px solid $white;
     transform: rotate(45deg);
   }
 }

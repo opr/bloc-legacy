@@ -1,20 +1,29 @@
 @include component(breadcrumbs) {
+  @extend .cf;
+  max-width: 900px;
+  margin: 0 auto 40px;
 
   @include part(list) {
-    @extend .cf;
+    display: block;
+    float: left;
+    background: lighten($black, 15%);
+    padding: 10px 20px;
 
     @include part(item) {
       display: inline-block;
       float: left;
-      margin-right: 25px;
       position: relative;
+      list-style: none;
+      color: $white;
+      margin-right: 27px;
 
       &:after {
-        font-family: "FontAwesome";
-        content: "\f061";
-        color: $palette_e;
+        font-family: 'FontAwesome', sans-serif;
+        content: '\f061';
+        color: $white;
+        opacity: .6;
         display: block;
-        @include font-size(12);
+        font-size: .6rem;
         position: absolute;
         right: -17px;
         top: 50%;
@@ -22,6 +31,7 @@
       }
 
       &:last-child {
+        margin-right: 0;
 
         &:after {
           display: none;
@@ -29,9 +39,10 @@
       }
 
       @include part(link) {
-        @include font-size(14);
-        color: $palette_a;
+        font-size: .8rem;
+        color: $white;
         text-decoration: none;
+        border: 0;
       }
     }
   }

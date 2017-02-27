@@ -24,11 +24,11 @@
 	<div class="footer-content__column">
 		<h3 class="footer-content__column__title">Twitter</h3>
 		<div class="footer-content__column__twitter">
-			<p class="footer-content__column__twitter__title">&#64;twittername</p>
+			<p class="footer-content__column__twitter__title"><a href="#">&#64;twittername</a></p>
 			<p class="footer-content__column__twitter__text">Discover what it's like to be a <a href="#" class="footer-content__column__twitter__text__link">#Volunteer</a> <a href="#" class="footer-content__column__twitter__text__link">#Ranger</a> in <a href="#" class="footer-content__column__twitter__text__link">@NlandNP</a> in our new <a href="#" class="footer-content__column__twitter__text__link">#blog</a> written by the volunteers themselve… <a href="#" class="footer-content__column__twitter__text__link">twitter.com/i/web/status/8…</a></p>
 		</div>
 		<div class="footer-content__column__twitter">
-			<p class="footer-content__column__twitter__title">&#64;twittername</p>
+			<p class="footer-content__column__twitter__title"><a href="#">&#64;twittername</a></p>
 			<p class="footer-content__column__twitter__text">Discover what it's like to be a <a href="#" class="footer-content__column__twitter__text__link">#Volunteer</a> <a href="#" class="footer-content__column__twitter__text__link">#Ranger</a> in <a href="#" class="footer-content__column__twitter__text__link">@NlandNP</a> in our new <a href="#" class="footer-content__column__twitter__text__link">#blog</a> written by the volunteers themselve… <a href="#" class="footer-content__column__twitter__text__link">twitter.com/i/web/status/8…</a></p>
 		</div>
 	</div>

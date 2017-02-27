@@ -5,13 +5,13 @@
   left: 0;
   background-color: $palette_a;
   padding: 20px;
-  color: white;
-  border-bottom: none;
+  color: $white;
+  border-bottom: 0;
   transform: translateY(-80px);
   z-index: 1;
 
   &:focus {
-    transform: translateY(0px);
+    transform: translateY(0);
   }
 
   &:not(:focus) {
@@ -19,7 +19,7 @@
   }
 
   &:hover {
-    border-bottom: none;
+    border-bottom: 0;
     background-color: darken($palette_a, 10%);
     color: $white;
   }

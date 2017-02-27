@@ -1,4 +1,4 @@
-@include component(intro-section) {
+@include component(intro-section-video) {
   @extend .cf;
   float: left;
   width: 100%;
@@ -16,7 +16,7 @@
   }
 
   @include part(title) {
-    color: white;
+    color: $white;
     line-height: 3.4rem;
   }
 
