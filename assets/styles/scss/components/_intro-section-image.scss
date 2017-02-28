@@ -1,0 +1,35 @@
+@include component(intro-section-image) {
+  @extend .cf;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: calc(100vh - 140px);
+  min-height: 550px;
+  text-align: center;
+
+  @include bp($tablet) {
+    height: calc(100vh - 140px);
+  }
+
+  @include part(cta) {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @include part(title) {
+    color: $white;
+    line-height: 3.4rem;
+  }
+
+  @include part(background-image) {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url('https://unsplash.it/1000/800?random') center;
+    background-size: cover;
+  }
+}

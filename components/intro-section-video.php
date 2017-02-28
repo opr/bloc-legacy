@@ -5,7 +5,7 @@
         <source src="@panel.OgvVideo" type="video/ogg">
     </video>
     <div class="intro-section-video__cta">
-		<h1 class="intro-section-video__title">Intro section</h1>
+		<h1 class="intro-section-video__title">Intro section video</h1>
 		<?php include( 'components/button.php'); ?>
 	</div>
 	<?php include( 'components/scroll-link.php'); ?>

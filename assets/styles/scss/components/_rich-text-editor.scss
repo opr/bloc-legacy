@@ -39,32 +39,37 @@
     font-family: $boldfont;
   }
 
-  ul, ol {
+  ul,
+  ol {
     margin-bottom: 1.4rem;
     line-height: 1.6rem;
   }
 
-  ul li {
-    list-style-type: disc;
-    list-style-position: inside;
-    margin-left: 20px;
+  ul {
+    li {
+      list-style-type: disc;
+      list-style-position: inside;
+      margin-left: 20px;
+    }
   }
 
-  ol li {
-    list-style-type: decimal;
-    list-style-position: outside;
-    margin-left: 35px;
-    text-indent: 15px;
+  ol {
+    li {
+      list-style-type: decimal;
+      list-style-position: outside;
+      margin-left: 35px;
+      text-indent: 15px;
+    }
   }
 
   sup {
     vertical-align: super;
-    font-size: 0.7rem;
+    font-size: .7rem;
   }
 
   sub {
     vertical-align: sub;
-    font-size: 0.7rem;
+    font-size: .7rem;
   }
 
   img {

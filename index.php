@@ -8,6 +8,9 @@
     <?php include "components/skip-link.php" ?>
     <?php include "components/header.php" ?>
     <?php include "components/intro-section-video.php" ?>
+    <?php include "components/intro-section-image.php" ?>
+    <?php include "components/vertical-cards.php" ?>
+    <?php include "components/horizontal-cards.php" ?>
     <div id="content" class="content-container">
         <?php include "components/breadcrumbs.php" ?>
         <?php include "components/rich-text-editor.php" ?>

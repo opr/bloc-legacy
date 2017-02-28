@@ -16,7 +16,7 @@
 | of them, this causes the container to have the  |
 | proper height.
 *************************************************/
-.cf:after, .breadcrumbs:after, .container:after, .content-container:after, .intro-section-video:after, .rich-text-editor:after {
+.cf:after, .breadcrumbs:after, .container:after, .content-container:after, .horizontal-cards:after, .horizontal-cards__landscape-card:after, .intro-section-image:after, .intro-section-video:after, .rich-text-editor:after, .vertical-cards:after {
   clear: both;
   content: '';
   display: block;
@@ -633,9 +633,118 @@ body.\--menu-open {
   position: absolute;
   left: -50000px; }
 
+.horizontal-cards {
+  transition: all 0.3s ease;
+  float: left;
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box; }
+  @media (min-width: 960px) {
+    .horizontal-cards {
+      padding: 60px; } }
+  .horizontal-cards__landscape-card {
+    width: 100%;
+    position: relative;
+    float: left;
+    padding: 10px;
+    box-sizing: border-box; }
+    @media (min-width: 560px) {
+      .horizontal-cards__landscape-card {
+        width: 50%;
+        height: 250px; } }
+    @media (min-width: 560px) {
+      .horizontal-cards__landscape-card.\--two-col {
+        width: 100%; } }
+    @media (min-width: 960px) {
+      .horizontal-cards__landscape-card.\--two-col {
+        width: 50%; } }
+    .horizontal-cards__landscape-card__image {
+      float: left;
+      width: 100%;
+      height: 200px;
+      background: url("https://unsplash.it/500/400/?random") center;
+      background-size: cover; }
+      @media (min-width: 560px) {
+        .horizontal-cards__landscape-card__image {
+          width: 33.333%;
+          height: 100%; } }
+    .horizontal-cards__landscape-card__content-container {
+      transition: all 0.3s ease;
+      width: 100%;
+      float: left;
+      box-sizing: border-box; }
+      .horizontal-cards__landscape-card__content-container:hover {
+        -webkit-transform: translateY(-5px);
+        -ms-transform: translateY(-5px);
+        transform: translateY(-5px);
+        box-shadow: 0 5px 10px #e6e6e6; }
+      @media (min-width: 560px) {
+        .horizontal-cards__landscape-card__content-container {
+          height: 100%; } }
+    .horizontal-cards__landscape-card__text-container {
+      float: right;
+      border: 1px solid #cccccc;
+      height: 100%;
+      box-sizing: border-box;
+      padding: 30px; }
+      @media (min-width: 560px) {
+        .horizontal-cards__landscape-card__text-container {
+          width: 66.666%;
+          border-left: 0; } }
+      .horizontal-cards__landscape-card__text-container__title {
+        font-size: 1.3rem;
+        line-height: 1.5rem;
+        margin-bottom: 10px;
+        color: #EA2533; }
+      .horizontal-cards__landscape-card__text-container__text {
+        font-size: .9rem; }
+  .horizontal-cards__placeholder {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 500px;
+    padding: 10px;
+    box-sizing: border-box; }
+    @media (min-width: 960px) {
+      .horizontal-cards__placeholder {
+        width: 50%; } }
+    .horizontal-cards__placeholder__container {
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box; }
+
 iframe {
   height: 500px;
   width: 100%; }
+
+.intro-section-image {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: calc(100vh - 140px);
+  min-height: 550px;
+  text-align: center; }
+  @media (min-width: 560px) {
+    .intro-section-image {
+      height: calc(100vh - 140px); } }
+  .intro-section-image__cta {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%); }
+  .intro-section-image__title {
+    color: #fff;
+    line-height: 3.4rem; }
+  .intro-section-image__background-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url("https://unsplash.it/1000/800?random") center;
+    background-size: cover; }
 
 .intro-section-video {
   float: left;
@@ -699,7 +808,8 @@ iframe {
     font-style: normal; }
   .rich-text-editor b {
     font-family: "InteloBold", sans-serif; }
-  .rich-text-editor ul, .rich-text-editor ol {
+  .rich-text-editor ul,
+  .rich-text-editor ol {
     margin-bottom: 1.4rem;
     line-height: 1.6rem; }
   .rich-text-editor ul li {
@@ -713,10 +823,10 @@ iframe {
     text-indent: 15px; }
   .rich-text-editor sup {
     vertical-align: super;
-    font-size: 0.7rem; }
+    font-size: .7rem; }
   .rich-text-editor sub {
     vertical-align: sub;
-    font-size: 0.7rem; }
+    font-size: .7rem; }
   .rich-text-editor img {
     margin-bottom: 30px;
     max-width: 100% !important;
@@ -798,3 +908,54 @@ iframe {
     fill: #fff; }
   .svg-logo__element.\--colour-b {
     fill: #EA2533; }
+
+.vertical-cards {
+  float: left;
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box; }
+  @media (min-width: 960px) {
+    .vertical-cards {
+      padding: 60px; } }
+  .vertical-cards__content-container {
+    transition: all 0.3s ease; }
+    .vertical-cards__content-container:hover {
+      -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+      transform: translateY(-5px);
+      box-shadow: 0 5px 10px #e6e6e6; }
+  .vertical-cards__section-container {
+    overflow: hidden; }
+  .vertical-cards__heading {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px; }
+  .vertical-cards__section {
+    transition: all 0.3s ease;
+    padding: 10px;
+    width: 100%;
+    float: left;
+    cursor: pointer;
+    box-sizing: border-box; }
+    @media (min-width: 560px) {
+      .vertical-cards__section {
+        width: 50%; } }
+    @media (min-width: 960px) {
+      .vertical-cards__section {
+        width: 25%; } }
+    .vertical-cards__section__content {
+      padding: 30px;
+      border: 1px solid #cccccc;
+      border-top: 0; }
+      .vertical-cards__section__content__title {
+        font-size: 1.2rem;
+        color: #EA2533;
+        margin-bottom: 10px; }
+      .vertical-cards__section__content__text {
+        font-size: .9rem; }
+    .vertical-cards__section__image {
+      width: 100%;
+      height: 200px;
+      background: url("https://unsplash.it/500/400?random") center;
+      background-size: cover; }

@@ -181,7 +181,7 @@ function concatExternalScripts(min = false) {
 // Watch Files For Changes
 gulp.task('watch', function () {
     gulp.watch('assets/js/dist/bloc.js').on('change', browsersync.reload);
-    gulp.watch('Views/**/*.cshtml').on('change', browsersync.reload);
+    gulp.watch(['Views/**/*.cshtml', 'components/*.php']).on('change', browsersync.reload);
     gulp.watch(['assets/js/*.js', 'assets/js/components/*.js', 'assets/js/react/*.js*'], ['lint', 'scripts']);
     gulp.watch(['assets/js/react/**/*.js*'], ['webpack:build']);
     gulp.watch(['assets/js/dist/bundle.js'], ['bundle:minify']);
