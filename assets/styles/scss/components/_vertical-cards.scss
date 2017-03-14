@@ -2,7 +2,7 @@
   @extend .cf;
   float: left;
   width: 100%;
-  padding: 30px;
+  padding: 20px;
   box-sizing: border-box;
 
   @include bp($landscapetablet) {
@@ -36,6 +36,11 @@
     float: left;
     cursor: pointer;
     box-sizing: border-box;
+    color: $black;
+
+    &:hover {
+      color: $black;
+    }
 
     @include bp($tablet) {
       width: 50%;

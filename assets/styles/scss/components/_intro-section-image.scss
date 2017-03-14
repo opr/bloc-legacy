@@ -1,11 +1,12 @@
 @include component(intro-section-image) {
   @extend .cf;
+  float: left;
   width: 100%;
-  overflow: hidden;
-  position: relative;
   height: calc(100vh - 140px);
   min-height: 550px;
+  overflow: hidden;
   text-align: center;
+  position: relative;
 
   @include bp($tablet) {
     height: calc(100vh - 140px);

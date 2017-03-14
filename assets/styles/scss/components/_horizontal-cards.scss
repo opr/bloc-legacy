@@ -3,11 +3,26 @@
   @include transition(all, ease);
   float: left;
   width: 100%;
-  padding: 30px;
+  padding: 20px;
   box-sizing: border-box;
 
   @include bp($landscapetablet) {
     padding: 60px;
+  }
+
+  @include part(card) {
+    color: $black;
+
+    &:hover {
+      color: $black;
+    }
+  }
+
+  @include part(heading) {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
   }
 
   @include part(landscape-card) {

@@ -241,7 +241,8 @@ body.\--menu-open {
   position: relative;
   float: left; }
   .carousel__slide {
-    display: block;
+    float: left;
+    display: inline-block;
     background: url("http://placehold.it/1000x800") center;
     background-size: cover;
     margin: 0;
@@ -637,11 +638,20 @@ body.\--menu-open {
   transition: all 0.3s ease;
   float: left;
   width: 100%;
-  padding: 30px;
+  padding: 20px;
   box-sizing: border-box; }
   @media (min-width: 960px) {
     .horizontal-cards {
       padding: 60px; } }
+  .horizontal-cards__card {
+    color: #000; }
+    .horizontal-cards__card:hover {
+      color: #000; }
+  .horizontal-cards__heading {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px; }
   .horizontal-cards__landscape-card {
     width: 100%;
     position: relative;
@@ -718,12 +728,13 @@ iframe {
   width: 100%; }
 
 .intro-section-image {
+  float: left;
   width: 100%;
-  overflow: hidden;
-  position: relative;
   height: calc(100vh - 140px);
   min-height: 550px;
-  text-align: center; }
+  overflow: hidden;
+  text-align: center;
+  position: relative; }
   @media (min-width: 560px) {
     .intro-section-image {
       height: calc(100vh - 140px); } }
@@ -912,7 +923,7 @@ iframe {
 .vertical-cards {
   float: left;
   width: 100%;
-  padding: 30px;
+  padding: 20px;
   box-sizing: border-box; }
   @media (min-width: 960px) {
     .vertical-cards {
@@ -937,7 +948,10 @@ iframe {
     width: 100%;
     float: left;
     cursor: pointer;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    color: #000; }
+    .vertical-cards__section:hover {
+      color: #000; }
     @media (min-width: 560px) {
       .vertical-cards__section {
         width: 50%; } }

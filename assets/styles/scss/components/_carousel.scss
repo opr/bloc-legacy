@@ -6,7 +6,8 @@
   float: left;
 
   @include part(slide) {
-    display: block;
+    float: left;
+    display: inline-block;
     background: url('http://placehold.it/1000x800') center;
     background-size: cover;
     margin: 0;

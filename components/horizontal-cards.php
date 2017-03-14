@@ -1,5 +1,6 @@
 <section class="horizontal-cards">
-    <div class="horizontal-cards__masonry">
+    <h2 class="horizontal-cards__heading">Horizontal cards section title</h2>
+    <a href="#" class="horizontal-cards__card">
         <div class="horizontal-cards__landscape-card --two-col">
             <div class="horizontal-cards__landscape-card__content-container">
                 <div class="horizontal-cards__landscape-card__image"></div>
@@ -10,8 +11,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="horizontal-cards__masonry">
+    </a>
+    <a href="#" class="horizontal-cards__card">
         <div class="horizontal-cards__landscape-card --two-col">
             <div class="horizontal-cards__landscape-card__content-container">
                 <div class="horizontal-cards__landscape-card__image"></div>
@@ -22,5 +23,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </a>
 </section>
