@@ -109,6 +109,10 @@ a {
   a:hover {
     color: #4A75E6; }
 
+video {
+  object-fit: cover;
+  font-family: 'object-fit: cover;'; }
+
 /*************************************************|
 | Put your fonts in here                          |
 *************************************************/
@@ -775,9 +779,13 @@ iframe {
   .intro-section-video__title {
     color: #fff;
     line-height: 3.4rem; }
+  .intro-section-video__video-container {
+    display: none; }
+    @media (min-width: 960px) {
+      .intro-section-video__video-container {
+        display: block; } }
   .intro-section-video__video {
-    max-width: 100%;
-    object-fit: cover;
+    display: none;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -789,9 +797,10 @@ iframe {
     -webkit-transform: translateX(-50%) translateY(-50%);
     -ms-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-    background-size: cover;
-    overflow-x: hidden;
-    box-sizing: border-box; }
+    background-size: cover; }
+    @media (min-width: 960px) {
+      .intro-section-video__video {
+        display: block; } }
 
 .rich-text-editor {
   width: 100%;

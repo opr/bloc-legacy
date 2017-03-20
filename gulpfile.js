@@ -170,14 +170,15 @@ function concatExternalScripts(min = false) {
                 /** put your libraries here **/
                 'assets/vendor/jquery/dist/jquery.min.js',
                 'assets/vendor/babel-polyfill/dist/polyfill.min.js',
-                'assets/vendor/polyfill/browser-polyfill.min.js',
                 'assets/vendor/slick/slick.min.js',
+                'node_modules/object-fit-videos/dist/object-fit-videos.min.js',
                 'assets/js/dist/bloc' + (min ? '.min' : '') + '.js'
             ])
             .pipe(concat('bloc' + (min ? '.min' : '') + '.js'))
             .pipe(gulp.dest('assets/js/dist'));
     }
 }
+
 
 // Watch Files For Changes
 gulp.task('watch', function () {

@@ -1,7 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
-console.log(
-    path.join(__dirname, '/assets/js/react/', 'index.jsx'));
+
 module.exports = {
     debug: true,
     devtool: '#eval-source-map',

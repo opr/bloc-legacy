@@ -3,9 +3,9 @@ var webpack = require('webpack');
 
 module.exports = {
     context: path.join(__dirname),
-    entry: {
-        client: './assets/js/react/index.jsx'
-    },
+    entry: [
+        './assets/js/react/index.jsx'
+    ],
     output: {
         path: path.join(__dirname, 'assets/js/dist'),
         filename: 'bundle.js'

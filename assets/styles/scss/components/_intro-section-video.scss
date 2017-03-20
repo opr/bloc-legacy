@@ -20,9 +20,16 @@
     line-height: 3.4rem;
   }
 
+  @include part(video-container) {
+    display: none;
+
+    @include bp($landscapetablet) {
+      display: block;
+    }
+  }
+
   @include part(video) {
-    max-width: 100%;
-    object-fit: cover;
+    display: none;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -33,7 +40,9 @@
     z-index: 0;
     transform: translateX(-50%) translateY(-50%);
     background-size: cover;
-    overflow-x: hidden;
-    box-sizing: border-box;
+
+    @include bp($landscapetablet) {
+      display: block;
+    }
   }
 }

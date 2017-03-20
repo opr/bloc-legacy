@@ -5,27 +5,9 @@ let pageFunctions = {
         },
 
         finalize: function () {
-
-        }
-    },
-    news: {
-        init: function () {
-
-        },
-        finalize: function () {
-
-        }
-    },
-
-    blog: {
-        init: function () {
-            console.log("blog page!");
-        },
-        finalize: function () {
-            window.addEventListener('resize', () => {
-                normalizeElementHeights('.career-opportunity-card');
-            });
-            normalizeElementHeights('.career-opportunity-card');
+            objectFitVideos();
+            console.log('fitting wideos');
+            normalizeElementHeights('.vertical-cards__section__content');
         }
     }
 
