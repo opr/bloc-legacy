@@ -12,3 +12,8 @@ $(".header__navigation__menu__item__link").blur(function(){
     $(".header__navigation").removeClass("--active");
     $(".header__navigation__mobile-menu-icon__bar").removeClass("--open");
 });
+
+$(".header__navigation__mobile-close").click(function(){
+    $(".header__navigation").removeClass("--active");
+    $(".header__navigation__mobile-menu-icon__bar").removeClass("--open");
+});

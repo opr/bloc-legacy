@@ -9,6 +9,7 @@
   display: none;
   cursor: pointer;
   border-bottom: 0;
+  z-index: 1;
 
   &:hover {
     border-bottom: 0;

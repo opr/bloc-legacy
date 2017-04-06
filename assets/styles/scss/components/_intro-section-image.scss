@@ -2,21 +2,17 @@
   @extend .cf;
   float: left;
   width: 100%;
-  height: calc(100vh - 140px);
+  height: 100vh;
   min-height: 550px;
   overflow: hidden;
   text-align: center;
   position: relative;
 
-  @include bp($tablet) {
-    height: calc(100vh - 140px);
-  }
-
   @include part(cta) {
     position: absolute;
-    top: 30%;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(-50%);
   }
 
   @include part(title) {

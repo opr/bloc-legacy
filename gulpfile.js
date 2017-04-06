@@ -171,7 +171,8 @@ function concatExternalScripts(min = false) {
                 'assets/vendor/jquery/dist/jquery.min.js',
                 'assets/vendor/babel-polyfill/dist/polyfill.min.js',
                 'assets/vendor/slick/slick.min.js',
-                'node_modules/object-fit-videos/dist/object-fit-videos.min.js',
+                'assets/vendor/isotope/dist/isotope.pkgd.min.js',
+                /** 'node_modules/object-fit-videos/dist/object-fit-videos.min.js', **/
                 'assets/js/dist/bloc' + (min ? '.min' : '') + '.js'
             ])
             .pipe(concat('bloc' + (min ? '.min' : '') + '.js'))

@@ -1,0 +1,20 @@
+@include component(video) {
+  @extend .cf;
+  float: left;
+  width: 100%;
+  background: lighten($black, 95%);
+  padding: 30px;
+  box-sizing: border-box;
+
+  @include bp($desktop) {
+    padding: 80px;
+  }
+
+  @include part(content) {
+    width: 100%;
+    max-width: 900px !important;
+    max-height: 100% !important;
+    display: block;
+    margin: 0 auto;
+  }
+}

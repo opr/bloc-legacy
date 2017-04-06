@@ -15,6 +15,8 @@
         <?php include "components/breadcrumbs.php" ?>
         <?php include "components/rich-text-editor.php" ?>
     </div>
+    <?php include "components/video.php" ?>
+    <?php include "components/masonry-grid.php" ?>
     <?php include "components/carousel.php" ?>
     <?php include "components/footer-content.php" ?>
     <?php include "components/footer.php" ?>
