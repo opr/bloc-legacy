@@ -66,13 +66,13 @@ gulp.task('lint', function () {
 
 gulp.task('sass:lint', function () {
     return gulp.src([
-            '!assets/styles/scss/config/_reset.scss',
-            '!assets/styles/scss/config/_variables.scss',
-            '!assets/styles/scss/config/_fonts.scss',
-            '!assets/styles/scss/mixins/_font-size.scss',
-            '!assets/styles/scss/mixins/_rgba.scss',
-            'assets/styles/scss/**/*.scss'
-        ])
+        '!assets/styles/scss/config/_reset.scss',
+        '!assets/styles/scss/config/_variables.scss',
+        '!assets/styles/scss/config/_fonts.scss',
+        '!assets/styles/scss/mixins/_font-size.scss',
+        '!assets/styles/scss/mixins/_rgba.scss',
+        'assets/styles/scss/**/*.scss'
+    ])
         .pipe(sassLint({
             options: {
                 formatter: 'stylish',
@@ -124,9 +124,9 @@ gulp.task('imagemin', () =>
 
 gulp.task('scripts', ['lint'], function () {
     return gulp.src([
-            /** DO NOT PUT EXTERNAL LIBRARIES HERE PUT THEM IN THE concatExternalScripts FUNCTION **/
-            'assets/js/*.js',
-            'assets/js/components/*.js'])
+        /** DO NOT PUT EXTERNAL LIBRARIES HERE PUT THEM IN THE concatExternalScripts FUNCTION **/
+        'assets/js/*.js',
+        'assets/js/components/*.js'])
         .pipe(plumber({errorHandler: errorAlert}))
         .pipe(babel({
             presets: ['es2015']
@@ -141,8 +141,8 @@ gulp.task('scripts', ['lint'], function () {
 
 gulp.task('bundle:minify', function () {
     return gulp.src([
-            'assets/js/dist/bundle.js'
-        ])
+        'assets/js/dist/bundle.js'
+    ])
         .pipe(gulp.dest('assets/js/dist'))
         .pipe(rename('bundle.min.js'))
         .pipe(uglify())
@@ -152,8 +152,8 @@ gulp.task('bundle:minify', function () {
 // Concatenate & Minify JS
 gulp.task('webpack:build', function () {
     return gulp.src([
-            'assets/js/react/**/*.js*'
-        ])
+        'assets/js/react/**/*.js*'
+    ])
         .pipe(plumber({errorHandler: errorAlert}))
         .pipe(webpack(require('./webpack.production.config')))
         .pipe(gulp.dest('assets/js/dist'))
@@ -167,14 +167,18 @@ gulp.task('scripts:concat-external', ['scripts'], concatExternalScripts());
 function concatExternalScripts(min = false) {
     return () => {
         return gulp.src([
-                /** put your libraries here **/
-                'assets/vendor/jquery/dist/jquery.min.js',
-                'assets/vendor/babel-polyfill/dist/polyfill.min.js',
-                'assets/vendor/slick/slick.min.js',
-                'assets/vendor/isotope/dist/isotope.pkgd.min.js',
-                /** 'node_modules/object-fit-videos/dist/object-fit-videos.min.js', **/
-                'assets/js/dist/bloc' + (min ? '.min' : '') + '.js'
-            ])
+            /** put your libraries here **/
+            'assets/vendor/babel-polyfill/dist/polyfill.min.js',
+            'assets/vendor/three.js/Detector.js',
+            'assets/vendor/three.js/three.min.js',
+            'assets/vendor/three.js/libs/stats.min.js',
+            'assets/vendor/three.js/libs/dat.gui.min.js',
+            'assets/vendor/three.js/GPUComputationRenderer.js',
+            'assets/vendor/slick/slick.min.js',
+            'assets/vendor/isotope/dist/isotope.pkgd.min.js',
+            /** 'node_modules/object-fit-videos/dist/object-fit-videos.min.js', **/
+            'assets/js/dist/bloc' + (min ? '.min' : '') + '.js'
+        ])
             .pipe(concat('bloc' + (min ? '.min' : '') + '.js'))
             .pipe(gulp.dest('assets/js/dist'));
     }
@@ -185,7 +189,7 @@ function concatExternalScripts(min = false) {
 gulp.task('watch', function () {
     gulp.watch('assets/js/dist/bloc.js').on('change', browsersync.reload);
     gulp.watch(['Views/**/*.cshtml', 'components/*.php']).on('change', browsersync.reload);
-    gulp.watch(['assets/js/*.js', 'assets/js/components/*.js', 'assets/js/react/*.js*'], ['lint', 'scripts']);
+    gulp.watch(['assets/js/*.js', 'assets/js/components/*.js', 'assets/js/react/*.js*'], ['lint', 'scripts', 'scripts:concat-external:min', 'scripts:concat-external']);
     gulp.watch(['assets/js/react/**/*.js*'], ['webpack:build']);
     gulp.watch(['assets/js/dist/bundle.js'], ['bundle:minify']);
     gulp.watch('assets/styles/scss/**/*.scss', ['sass:lint', 'sass:compile']);//.on( 'change', browsersync.stream );
