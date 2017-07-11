@@ -1,8 +1,8 @@
 var webpack = require('webpack');
 var path = require('path');
-
+console.log(
+    path.join(__dirname, '/assets/js/react/', 'index.jsx'));
 module.exports = {
-    debug: true,
     devtool: '#eval-source-map',
 
     entry: [
@@ -18,18 +18,17 @@ module.exports = {
     },
 
     plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
+        new webpack.NoEmitOnErrorsPlugin()
     ],
 
     module: {
         loaders: [
-            { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot', 'babel'] }
+            { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot-loader', 'babel-loader'] }
         ]
     },
     resolve: {
         // Allow require('./blah') to require blah.jsx
-        extensions: ['', '.js', '.jsx']
+        extensions: ['.js', '.jsx']
     }
 };
