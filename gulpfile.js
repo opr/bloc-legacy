@@ -22,7 +22,6 @@ var jshint = require('gulp-jshint'),
     webpackHotMiddleware = require('webpack-hot-middleware'),
     webpackStatic = require('webpack'),
     gutil = require('gulp-util'),
-    bake = require('gulp-bake'),
     sassLint = require('gulp-sass-lint'),
     stylish = require('jshint-stylish'),
     sort = require('gulp-sort'),
@@ -169,14 +168,6 @@ function concatExternalScripts(min = false) {
         return gulp.src([
             /** put your libraries here **/
             'assets/vendor/babel-polyfill/dist/polyfill.min.js',
-            'assets/vendor/three.js/Detector.js',
-            'assets/vendor/three.js/three.min.js',
-            'assets/vendor/three.js/libs/stats.min.js',
-            'assets/vendor/three.js/libs/dat.gui.min.js',
-            'assets/vendor/three.js/GPUComputationRenderer.js',
-            'assets/vendor/slick/slick.min.js',
-            'assets/vendor/isotope/dist/isotope.pkgd.min.js',
-            /** 'node_modules/object-fit-videos/dist/object-fit-videos.min.js', **/
             'assets/js/dist/bloc' + (min ? '.min' : '') + '.js'
         ])
             .pipe(concat('bloc' + (min ? '.min' : '') + '.js'))
