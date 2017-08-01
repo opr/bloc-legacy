@@ -1,10 +1,10 @@
 // Include gulp
-var gulp = require('gulp'),
+let gulp = require('gulp'),
     textDomain = 'bloc',
-    appUrl = "bloc.local";
+    appUrl = "localhost:8088";
 
 // Include Our Plugins
-var jshint = require('gulp-jshint'),
+let jshint = require('gulp-jshint'),
     babel = require('gulp-babel'),
     sass = require('gulp-sass'),
     sassGlobbing = require('gulp-sass-glob'),
@@ -25,10 +25,11 @@ var jshint = require('gulp-jshint'),
     sassLint = require('gulp-sass-lint'),
     stylish = require('jshint-stylish'),
     sort = require('gulp-sort'),
-    imagemin = require('gulp-imagemin');
+    imagemin = require('gulp-imagemin'),
+    webserver = require('gulp-webserver');
 
 
-var webpackConfig = require('./webpack.config.js'),
+let webpackConfig = require('./webpack.config.js'),
     bundler = webpackStatic(webpackConfig);
 
 gulp.task('browser-sync', function () {
@@ -94,6 +95,14 @@ gulp.task('sass:lint', function () {
         }))
         .pipe(sassLint.format())
         .pipe(sassLint.failOnError());
+});
+
+//webserver for local dev
+gulp.task('webserver', function () {
+    gulp.src('.')
+        .pipe(webserver({
+            port: 8088,
+        }));
 });
 
 // Compile Our Sass
@@ -187,7 +196,7 @@ gulp.task('watch', function () {
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass:lint', 'sass:compile', 'scripts', 'scripts:concat-external:min', 'scripts:concat-external', 'watch', 'webpack:build', 'bundle:minify', 'browser-sync']);
+gulp.task('default', ['lint', 'sass:lint', 'sass:compile', 'scripts', 'scripts:concat-external:min', 'scripts:concat-external', 'watch', 'webpack:build', 'bundle:minify', 'browser-sync', 'webserver']);
 gulp.task('build', ['lint', 'sass:lint', 'sass:compile', 'scripts', 'scripts:concat-external:min', 'scripts:concat-external', 'webpack:build', 'bundle:minify']);
 
 
