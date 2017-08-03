@@ -8,7 +8,8 @@ module.exports = {
     entry: [
         'webpack/hot/dev-server?reload=true',
         'webpack-hot-middleware/client',
-        path.join(__dirname, '/assets/js/react/', 'index.jsx')
+        path.join(__dirname, '/assets/js/react/', 'index.jsx'),
+        path.join(__dirname, '/assets/js/modules/', 'index.jsx'),
     ],
 
     output: {
@@ -21,8 +22,22 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin()
     ],
+    externals: {
+        THREE: "THREE"
+    },
 
     module: {
+        rules: [
+            {
+                test: /\.js$/,
+                enforce: 'pre',
+                exclude: /node_modules/,
+                loader: 'eslint-loader',
+                options: {
+                    emitWarning: true
+                }
+            }
+        ],
         loaders: [
             { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot-loader', 'babel-loader'] }
         ]

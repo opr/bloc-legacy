@@ -4,7 +4,8 @@ var webpack = require('webpack');
 module.exports = {
     context: path.join(__dirname),
     entry: [
-        './assets/js/react/index.jsx'
+        './assets/js/react/index.jsx',
+        './assets/js/modules/index.jsx',
     ],
     output: {
         path: path.join(__dirname, 'assets/js/dist'),
@@ -17,6 +18,11 @@ module.exports = {
             }
         })
     ],
+
+    externals: {
+        THREE: "THREE"
+    },
+
     module: {
         loaders: [
             // Transform JavaScript files via Babel

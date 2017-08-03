@@ -44,7 +44,8 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(1);
+	__webpack_require__(1);
+	module.exports = __webpack_require__(187);
 
 
 /***/ }),
@@ -22384,6 +22385,72 @@
 
 	module.exports = ReactDOMInvalidARIAHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ }),
+/* 187 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _HomepageScene = __webpack_require__(188);
+
+	var _HomepageScene2 = _interopRequireDefault(_HomepageScene);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var hps = new _HomepageScene2.default(),
+	    homepageSceneContainer = document.getElementsByClassName('homepage-scene-container'); //this is where our stuff that gets compiled by webpack will live
+
+	if (homepageSceneContainer.length > 0) {
+	    hps.render();
+	}
+
+/***/ }),
+/* 188 */
+/***/ (function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	        value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var HomepageScene = function () {
+	        function HomepageScene() {
+	                _classCallCheck(this, HomepageScene);
+	        }
+
+	        _createClass(HomepageScene, [{
+	                key: "render",
+	                value: function render(container) {
+	                        var WIDTH = 400;
+	                        var HEIGHT = 300;
+
+	                        var VIEW_ANGLE = 45;
+	                        var ASPECT = WIDTH / HEIGHT;
+	                        var NEAR = 0.1;
+	                        var FAR = 10000;
+
+	                        var renderer = new THREE.WebGLRenderer();
+	                        var camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
+
+	                        var scene = new THREE.Scene();
+
+	                        scene.add(camera);
+	                        renderer.setSize(WIDTH, HEIGHT);
+
+	                        container.appendChild(renderer.domElement);
+	                }
+	        }]);
+
+	        return HomepageScene;
+	}();
+
+	exports.default = HomepageScene;
 
 /***/ })
 /******/ ]);
