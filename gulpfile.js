@@ -1,10 +1,10 @@
 // Include gulp
-let gulp = require('gulp'),
-    textDomain = 'bloc',
-    appUrl = "localhost:8088";
+let appUrl = 'localhost:8088',
+    includeThreeJs = true;
 
 // Include Our Plugins
-let jshint = require('gulp-jshint'),
+let gulp = require('gulp'),
+    jshint = require('gulp-jshint'),
     babel = require('gulp-babel'),
     sass = require('gulp-sass'),
     sassGlobbing = require('gulp-sass-glob'),
@@ -173,8 +173,12 @@ gulp.task('scripts:concat-external:min', ['scripts'], concatExternalScripts(true
 gulp.task('scripts:concat-external', ['scripts'], concatExternalScripts());
 
 function concatExternalScripts(min = false) {
+    let threeJs = [];
+    if(includeThreeJs) {
+        threeJs = ['assets/vendor/three.js/three' + (min ? '.min' : '') + '.js'];
+    }
     return () => {
-        return gulp.src([
+        return gulp.src([...threeJs,
             /** put your libraries here **/
             'assets/vendor/babel-polyfill/dist/polyfill.min.js',
             'assets/js/dist/bloc' + (min ? '.min' : '') + '.js'

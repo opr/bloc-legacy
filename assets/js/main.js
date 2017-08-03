@@ -5,9 +5,7 @@ let pageFunctions = {
         },
 
         finalize: function () {
-            objectFitVideos();
-            console.log('fitting wideos');
-            normalizeElementHeights('.vertical-cards__section__content');
+
         }
     }
 
