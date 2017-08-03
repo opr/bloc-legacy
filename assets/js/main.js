@@ -8,7 +8,6 @@ let pageFunctions = {
 
         }
     }
-
 };
 
 
