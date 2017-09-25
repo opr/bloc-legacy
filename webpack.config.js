@@ -1,19 +1,19 @@
 var webpack = require('webpack');
 var path = require('path');
 console.log(
-    path.join(__dirname, '/assets/js/react/', 'index.jsx'));
+    path.join(__dirname, '/assets-new/js/react/', 'index.jsx'));
 module.exports = {
     devtool: '#eval-source-map',
 
     entry: [
         'webpack/hot/dev-server?reload=true',
         'webpack-hot-middleware/client',
-        path.join(__dirname, '/assets/js/react/', 'index.jsx')
+        path.join(__dirname, '/assets-new/js/react/', 'index.jsx')
     ],
 
     output: {
-        path: path.join(__dirname, '/assets/js', 'dist'),
-        publicPath: '/assets/js/dist/',
+        path: path.join(__dirname, '/assets-new/js', 'dist'),
+        publicPath: '/assets-new/js/dist/',
         filename: 'bundle.min.js'
     },
 
