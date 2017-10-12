@@ -4,10 +4,10 @@ var webpack = require('webpack');
 module.exports = {
     context: path.join(__dirname),
     entry: [
-        './assets-new/js/react/index.jsx'
+        './assets/js/react/index.jsx'
     ],
     output: {
-        path: path.join(__dirname, 'assets-new/js/dist'),
+        path: path.join(__dirname, 'assets/js/dist'),
         filename: 'bundle.js'
     },
     plugins: [
@@ -23,7 +23,7 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader'
+                loader: 'babel'
             }
             // Uncomment this if you want to use your own version of React instead of the version
             // bundled with ReactJS.NET.
@@ -32,6 +32,6 @@ module.exports = {
     },
     resolve: {
         // Allow require('./blah') to require blah.jsx
-        extensions: ['.js', '.jsx']
+        extensions: ['', '.js', '.jsx']
     }
 };
