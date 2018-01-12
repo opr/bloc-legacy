@@ -39,7 +39,7 @@ module.exports = {
             }
         ],
         loaders: [
-            { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot-loader', 'babel-loader'] }
+            { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot-loader/webpack', 'babel-loader'] }
         ]
     },
     resolve: {
