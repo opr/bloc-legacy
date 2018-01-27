@@ -2,8 +2,8 @@
 | Breakpoints                                     |
 *************************************************/
 
-$mobile                            : 320px;
-$tablet                            : 560px;
+$bigmobile                         : 500px;
+$tablet                            : 760px;
 $landscapetablet                   : 960px;
 $desktop                           : 1260px;
 
@@ -11,28 +11,39 @@ $desktop                           : 1260px;
 | Colours                                         |
 *************************************************/
 
-$palette_a                        : #592941;
-$palette_b                        : #498467;
-$palette_c                        : #52B788;
-$palette_d                        : #B2D3A8;
-$palette_e                        : #0d0d0d;
+$white                         	  : #fff;
+$black							  : #000;
+$grey                             : #ccc;
+$dark-grey                        : #2f2f2f;
+$darker-grey                      : #1d1d1d;
+$light-grey                       : #404040;
+$lighter-grey                     : #464646;
+$palette_a                        : #560000;
+$palette_b                        : #b70000;
+$palette_c                        : #b70000;
+$palette_d                        : #282828;
+$palette_e                        : #08AF22;
+$gradient-palette-a-b             : linear-gradient(312deg, $palette_a, $palette_b);
+$gradient-grey                    : linear-gradient(124deg, $dark-grey, $black);
 
 /*************************************************|
 | Font Settings - sizes in px                     |
 *************************************************/
 
-$basefont                          : 'Muli', sans-serif;
-$boldfont                          : 'CenturyGothic', sans-serif;
-$displayfont                       : 'CenturyGothic', sans-serif;
-$italicfont                        : 'Muli', sans-serif;
-$numberfont                        : 'Muli', sans-serif;
+$basefont                          : 'Univers-Light', sans-serif;
+$headingfont                       : 'TiemposHeadlineLight', sans-serif;
+$boldfont                          : 'Univers', sans-serif;
+$displayfont                       : 'GraphikSemibold', sans-serif;
+$italicfont                        : 'GraphikSemibold', sans-serif;
+$numberfont                        : 'GraphikSemibold', sans-serif;
 
-$basefontsize                      : 16;
+$basefontsize                      : 14;
 $lineheight                        : 20;
 $headersizes                       : 3, 2.25, 1.5, 1.313, 1.125, 1;
 $headermargins                     : 0.563, 0.625, 1.313, 1.313, 1.313, 0.75;
 
-$basefontcolor                     : $palette_e;
+$basefontcolor                     : $dark-grey;
+$headingcolor                      : $dark-grey;
 
 /*************************************************|
 | Container Variables                             |
@@ -42,6 +53,7 @@ $max-width                         : 1400px;
 $basepadding__mobile               : 14px;
 $basepadding                       : 28px;
 $largepadding                      : 1.8em;
+$gutter                            : 3;
 
 /*************************************************|
 | Transition Times                                |

@@ -1,0 +1,6 @@
+@mixin rgba($val) {
+  background-color: rgba(0, 0, 0, $val);
+}
+@mixin rgba-background($color, $val) {
+  background-color: rgba($color, $val);
+}

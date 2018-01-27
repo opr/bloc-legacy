@@ -1,10 +1,10 @@
 // Include gulp
-var gulp = require('gulp'),
-    textDomain = 'bloc',
-    appUrl = "bloc.local";
+let appUrl = 'localhost:8088',
+    includeThreeJs = true;
 
 // Include Our Plugins
-var jshint = require('gulp-jshint'),
+let gulp = require('gulp'),
+    jshint = require('gulp-jshint'),
     babel = require('gulp-babel'),
     sass = require('gulp-sass'),
     sassGlobbing = require('gulp-sass-glob'),
@@ -22,14 +22,14 @@ var jshint = require('gulp-jshint'),
     webpackHotMiddleware = require('webpack-hot-middleware'),
     webpackStatic = require('webpack'),
     gutil = require('gulp-util'),
-    bake = require('gulp-bake'),
     sassLint = require('gulp-sass-lint'),
     stylish = require('jshint-stylish'),
     sort = require('gulp-sort'),
-    imagemin = require('gulp-imagemin');
+    imagemin = require('gulp-imagemin'),
+    webserver = require('gulp-webserver');
 
 
-var webpackConfig = require('./webpack.config.js'),
+let webpackConfig = require('./webpack.config.js'),
     bundler = webpackStatic(webpackConfig);
 
 gulp.task('browser-sync', function () {
@@ -55,7 +55,6 @@ gulp.task('browser-sync', function () {
     });
 });
 
-// Lint Task
 gulp.task('lint', function () {
     return gulp.src(['assets/js/*.js', '!assets/js/respond.min.js'])
         .pipe(jshint({
@@ -63,15 +62,21 @@ gulp.task('lint', function () {
         }))
         .pipe(jshint.reporter('jshint-stylish'))
         .pipe(jshint.reporter('fail'));
-    //.pipe(notify({message: "Javascript linted and compiled", title: "Compilation Successful"}));
 });
 
-//Lint sass
-gulp.task('sass:lint', function() {
-    return gulp.src(['!assets/styles/scss/config/_reset.scss', '!assets/styles/scss/config/_variables.scss',  '!assets/styles/scss/config/_fonts.scss', '!assets/styles/scss/mixins/_font-size.scss', 'assets/styles/scss/**/*.scss'])
+gulp.task('sass:lint', function () {
+    return gulp.src([
+        '!assets/styles/scss/config/_reset.scss',
+        '!assets/styles/scss/config/_variables.scss',
+        '!assets/styles/scss/config/_fonts.scss',
+        '!assets/styles/scss/mixins/_font-size.scss',
+        '!assets/styles/scss/mixins/_rgba.scss',
+        'assets/styles/scss/**/*.scss'
+    ])
         .pipe(sassLint({
             options: {
-                formatter: 'stylish'
+                formatter: 'stylish',
+                'max-warnings': 1
             },
             rules: {
                 'no-ids': 2, // Severity 0 (disabled)
@@ -89,18 +94,26 @@ gulp.task('sass:lint', function() {
             }
         }))
         .pipe(sassLint.format())
-        .pipe(sassLint.failOnError())
+        .pipe(sassLint.failOnError());
+});
+
+//webserver for local dev
+gulp.task('webserver', function () {
+    gulp.src('.')
+        .pipe(webserver({
+            port: 8088,
+        }));
 });
 
 // Compile Our Sass
-gulp.task('sass:compile', function () {
+gulp.task('sass:compile', ['sass:lint'], function () {
 
     return gulp.src('assets/styles/scss/**/*.scss')
         .pipe(plumber({errorHandler: errorAlert}))
         .pipe(sassGlobbing())
         .pipe(sass())
         .pipe(autoprefixer({
-            browsers: ['> 5%'],
+            browsers: ['last 5 versions'],
             cascade: false
         }))
         .pipe(gulp.dest('assets/styles/css/'))
@@ -117,9 +130,9 @@ gulp.task('imagemin', () =>
         .pipe(gulp.dest('assets/dist/img/'))
 );
 
-// Concatenate & Minify JS
 gulp.task('scripts', ['lint'], function () {
     return gulp.src([
+        /** DO NOT PUT EXTERNAL LIBRARIES HERE PUT THEM IN THE concatExternalScripts FUNCTION **/
         'assets/js/*.js',
         'assets/js/components/*.js'])
         .pipe(plumber({errorHandler: errorAlert}))
@@ -134,7 +147,6 @@ gulp.task('scripts', ['lint'], function () {
         .pipe(notify({message: "Javascript linted and compiled", title: "Compilation Successful"}))
 });
 
-//Minify Bundle
 gulp.task('bundle:minify', function () {
     return gulp.src([
         'assets/js/dist/bundle.js'
@@ -156,21 +168,43 @@ gulp.task('webpack:build', function () {
         .pipe(notify({message: "React built"}))
 });
 
+gulp.task('scripts:concat-external:min', ['scripts'], concatExternalScripts(true));
+
+gulp.task('scripts:concat-external', ['scripts'], concatExternalScripts());
+
+function concatExternalScripts(min = false) {
+    let threeJs = [];
+    if(includeThreeJs) {
+        threeJs = ['assets/vendor/three.js/three' + (min ? '.min' : '') + '.js'];
+    }
+    return () => {
+        return gulp.src([...threeJs,
+            /** put your libraries here **/
+            'assets/vendor/babel-polyfill/dist/polyfill.min.js',
+            'assets/js/dist/bloc' + (min ? '.min' : '') + '.js'
+        ])
+            .pipe(concat('bloc' + (min ? '.min' : '') + '.js'))
+            .pipe(gulp.dest('assets/js/dist'));
+    }
+}
+
+
 // Watch Files For Changes
 gulp.task('watch', function () {
-    gulp.watch('assets/js/dist/all.js').on('change', browsersync.reload);
-    gulp.watch(['assets/js/*.js', 'assets/js/components/*.js', 'assets/js/react/*.js*'], ['lint', 'scripts']);
+    gulp.watch('assets/js/dist/bloc.js').on('change', browsersync.reload);
+    gulp.watch(['Views/**/*.cshtml', 'components/*.php']).on('change', browsersync.reload);
+    gulp.watch(['assets/js/*.js', 'assets/js/components/*.js', 'assets/js/react/*.js*'], ['lint', 'scripts', 'scripts:concat-external:min', 'scripts:concat-external']);
     gulp.watch(['assets/js/react/**/*.js*'], ['webpack:build']);
     gulp.watch(['assets/js/dist/bundle.js'], ['bundle:minify']);
     gulp.watch('assets/styles/scss/**/*.scss', ['sass:lint', 'sass:compile']);//.on( 'change', browsersync.stream );
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass:lint', 'sass:compile', 'scripts', 'watch', 'webpack:build', 'bundle:minify', 'browser-sync']);
-gulp.task('build', ['lint', 'sass:lint', 'sass:compile', 'scripts', 'webpack:build', 'bundle:minify']);
+gulp.task('default', ['lint', 'sass:lint', 'sass:compile', 'scripts', 'scripts:concat-external:min', 'scripts:concat-external', 'watch', 'webpack:build', 'bundle:minify', 'browser-sync', 'webserver']);
+gulp.task('build', ['lint', 'sass:lint', 'sass:compile', 'scripts', 'scripts:concat-external:min', 'scripts:concat-external', 'webpack:build', 'bundle:minify']);
 
 
 function errorAlert(error) {
     console.log(error.toString());//Prints Error to Console
     this.emit("end"); //End function
-};
+}

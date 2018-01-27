@@ -1,11 +1,12 @@
 /*************************************************|
-| Welcome to Valoisa. This is the main file we'll |
+| Welcome to Bloc. This is the main file we'll |
 | compile our stylesheet from. If you want to add |
 | any of your own sass files, you should add them |
 | at the bottom of this file.                     |
 *************************************************/
 @import '../../vendor/csstyle/csstyle';
-
+@import '../../vendor/slick/slick.css';
+@import '../../vendor/font-awesome/css/font-awesome.css';
 
 /*************************************************|
 | Helpers are classes that are useful but aren't  |
@@ -28,8 +29,8 @@
 | styling!
 *************************************************/
 
-@import 'config/reset';
 @import 'config/variables';
+@import 'config/reset';
 @import 'config/fonts';
 @import 'config/typography';
 

@@ -1,10 +1,12 @@
 @charset "UTF-8";
 /*************************************************|
-| Welcome to Valoisa. This is the main file we'll |
+| Welcome to Bloc. This is the main file we'll |
 | compile our stylesheet from. If you want to add |
 | any of your own sass files, you should add them |
 | at the bottom of this file.                     |
 *************************************************/
+@import url(../../vendor/slick/slick.css);
+@import url(../../vendor/font-awesome/css/font-awesome.css);
 /*************************************************|
 | Helpers are classes that are useful but aren't  |
 | really considered to "style" the element.       |
@@ -14,7 +16,6 @@
 | of them, this causes the container to have the  |
 | proper height.
 *************************************************/
-@import url("https://fonts.googleapis.com/css?family=Muli:400,300,200");
 .cf:after, .container:after {
   clear: both;
   content: '';
@@ -37,6 +38,21 @@
 | will be on a fresh canvas, delicious!  Just     |
 | some configuration then we can actually do some |
 | styling!
+*************************************************/
+/*************************************************|
+| Breakpoints                                     |
+*************************************************/
+/*************************************************|
+| Colours                                         |
+*************************************************/
+/*************************************************|
+| Font Settings - sizes in px                     |
+*************************************************/
+/*************************************************|
+| Container Variables                             |
+*************************************************/
+/*************************************************|
+| Transition Times                                |
 *************************************************/
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -68,7 +84,8 @@ footer, header, hgroup, menu, nav, section {
   display: block; }
 
 body {
-  line-height: 1; }
+  line-height: 1.4;
+  font-smoothing: antialiased; }
 
 ol, ul {
   list-style: none; }
@@ -85,37 +102,41 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/*************************************************|
-| Breakpoints                                     |
-*************************************************/
-/*************************************************|
-| Colours                                         |
-*************************************************/
-/*************************************************|
-| Font Settings - sizes in px                     |
-*************************************************/
-/*************************************************|
-| Container Variables                             |
-*************************************************/
-/*************************************************|
-| Transition Times                                |
-*************************************************/
+a {
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: #EA2533; }
+  a:hover {
+    color: #4A75E6; }
+
+video {
+  -o-object-fit: cover;
+  object-fit: cover;
+  font-family: 'object-fit: cover;'; }
+
 /*************************************************|
 | Put your fonts in here                          |
 *************************************************/
 @font-face {
-  font-family: 'CenturyGothic';
-  src: url("./../fonts/CenturyGothic.eot");
-  src: local("☺"), url("./../fonts/CenturyGothic.ttf"); }
+  font-family: 'InteloRegular';
+  src: url("./../fonts/InteloRegular.eot");
+  src: local("☺"), url("../../fonts/InteloRegular.ttf"); }
 
 @font-face {
-  font-family: 'CenturyGothicBold';
-  src: url("./../fonts/CenturyGothicBold.eot");
-  src: local("☺"), url("../../fonts/CenturyGothicBold.ttf"); }
+  font-family: 'InteloBold';
+  src: url("./../fonts/InteloBold.eot");
+  src: local("☺"), url("../../fonts/InteloBold.ttf"); }
+
+@font-face {
+  font-family: 'InteloItalic';
+  src: url("./../fonts/InteloItalic.eot");
+  src: local("☺"), url("../../fonts/InteloItalic.ttf"); }
 
 html {
-  color: #0d0d0d;
-  font-family: "Muli", sans-serif;
+  color: #000;
+  font-family: "InteloRegular", sans-serif;
   font-size: 16px; }
 
 h1,
@@ -124,32 +145,32 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "CenturyGothic", sans-serif;
-  font-weight: 700; }
+  font-family: "InteloRegular", sans-serif;
+  font-weight: normal; }
 
 h1 {
   font-size: 3em;
-  margin: 0.563em 0; }
+  margin-bottom: 0.563em; }
 
 h2 {
   font-size: 2.25em;
-  margin: 0.625em 0; }
+  margin-bottom: 0.625em; }
 
 h3 {
   font-size: 1.5em;
-  margin: 1.313em 0; }
+  margin-bottom: 1.313em; }
 
 h4 {
   font-size: 1.313em;
-  margin: 1.313em 0; }
+  margin-bottom: 1.313em; }
 
 h5 {
   font-size: 1.125em;
-  margin: 1.313em 0; }
+  margin-bottom: 1.313em; }
 
 h6 {
   font-size: 1em;
-  margin: 0.75em 0; }
+  margin-bottom: 0.75em; }
 
 /*************************************************|
 | Now we can actually get on with making the site |
@@ -171,7 +192,3 @@ h6 {
       width: 85%; } }
   .container.\----d75 {
     width: 75%; }
-
-iframe {
-  height: 500px;
-  width: 100%; }

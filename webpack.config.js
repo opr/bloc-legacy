@@ -3,13 +3,13 @@ var path = require('path');
 console.log(
     path.join(__dirname, '/assets/js/react/', 'index.jsx'));
 module.exports = {
-    debug: true,
     devtool: '#eval-source-map',
 
     entry: [
         'webpack/hot/dev-server?reload=true',
         'webpack-hot-middleware/client',
-        path.join(__dirname, '/assets/js/react/', 'index.jsx')
+        path.join(__dirname, '/assets/js/react/', 'index.jsx'),
+        path.join(__dirname, '/assets/js/modules/', 'index.jsx'),
     ],
 
     output: {
@@ -19,18 +19,31 @@ module.exports = {
     },
 
     plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
+        new webpack.NoEmitOnErrorsPlugin()
     ],
+    externals: {
+        THREE: "THREE"
+    },
 
     module: {
+        rules: [
+            {
+                test: /\.js$/,
+                enforce: 'pre',
+                exclude: /node_modules/,
+                loader: 'eslint-loader',
+                options: {
+                    emitWarning: true
+                }
+            }
+        ],
         loaders: [
-            { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot', 'babel'] }
+            { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot-loader/webpack', 'babel-loader'] }
         ]
     },
     resolve: {
         // Allow require('./blah') to require blah.jsx
-        extensions: ['', '.js', '.jsx']
+        extensions: ['.js', '.jsx']
     }
 };
