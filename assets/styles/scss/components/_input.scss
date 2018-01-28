@@ -1,0 +1,13 @@
+@include component(input) {
+  border: 1px solid $grey;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  height: 50px;
+  font-size: 1.5rem;
+  font-family: $headingfont;
+
+  @include option(with-button) {
+    padding: 10px 60px 10px 10px;
+  }
+}

@@ -1,11 +1,11 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
     context: path.join(__dirname),
     entry: [
         './assets/js/react/index.jsx',
-        './assets/js/modules/index.jsx',
+        './assets/js/modules/index.jsx'
     ],
     output: {
         path: path.join(__dirname, 'assets/js/dist'),
@@ -13,31 +13,31 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            "process.env": {
-                NODE_ENV: JSON.stringify("production")
-            }
+            'process.env.NODE_ENV' : JSON.stringify('production')
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            },
+            output: {
+                comments: false
+            },
+            sourceMap: false,
+            minimize: true
         })
     ],
-
-    externals: {
-        THREE: "THREE"
-    },
-
     module: {
         loaders: [
             // Transform JavaScript files via Babel
             {
                 test: /\.jsx?$/,
-                exclude: /node_modules/,
-                loader: 'babel'
+                exclude: /node_modules\/(?!(tiny-slider)\/).*/,
+                loader: 'babel-loader',
             }
-            // Uncomment this if you want to use your own version of React instead of the version
-            // bundled with ReactJS.NET.
-            //{ test: require.resolve('react'), loader: 'expose?React' }
         ],
     },
     resolve: {
         // Allow require('./blah') to require blah.jsx
-        extensions: ['', '.js', '.jsx']
+        extensions: ['.js', '.jsx']
     }
 };

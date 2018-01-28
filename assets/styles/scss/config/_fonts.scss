@@ -56,12 +56,21 @@
   url('../../fonts/Graphik-Medium.woff') format('woff'), /* Pretty Modern Browsers */
   url('../../fonts/Graphik-Medium.ttf') format('truetype') /* Safari, Android, iOS */
 }
+
 @font-face {
   font-family: 'GraphikRegular';
   src: url('../../fonts/Graphik-Regular.eot'); /* IE9 Compat Modes */
   src: url('../../fonts/Graphik-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
   url('../../fonts/Graphik-Regular.woff') format('woff'), /* Pretty Modern Browsers */
   url('../../fonts/Graphik-Regular.ttf') format('truetype') /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'GraphikRegularItalic';
+  src: url('../../fonts/Graphik-RegularItalic.eot'); /* IE9 Compat Modes */
+  src: url('../../fonts/Graphik-RegularItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('../../fonts/Graphik-RegularItalic.woff') format('woff'), /* Pretty Modern Browsers */
+  url('../../fonts/Graphik-RegularItalic.ttf') format('truetype') /* Safari, Android, iOS */
 }
 
 @font-face {

@@ -21,4 +21,14 @@
   @include option(--d75) {
     width: 75%;
   }
+
+  @include option(tablet-ignore) {
+
+    @include bp($tablet) {
+      max-width: none;
+      margin: 0;
+      width: auto;
+      padding: 0;
+    }
+  }
 }

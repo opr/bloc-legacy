@@ -26,7 +26,8 @@ let gulp = require('gulp'),
     stylish = require('jshint-stylish'),
     sort = require('gulp-sort'),
     imagemin = require('gulp-imagemin'),
-    webserver = require('gulp-webserver');
+    webserver = require('gulp-webserver'),
+    genv = require('gulp-env');
 
 
 let webpackConfig = require('./webpack.config.js'),
@@ -35,7 +36,7 @@ let webpackConfig = require('./webpack.config.js'),
 gulp.task('browser-sync', function () {
     browsersync({
         open: false,
-        notify: true,
+        notify: false,
         ghostMode: {
             clicks: false,
             forms: true,
@@ -90,7 +91,8 @@ gulp.task('sass:lint', function () {
                 'no-url-domains': 0,
                 'no-url-protocols': 0,
                 'mixins-before-declarations': 0,
-                'property-sort-order': 0
+                'property-sort-order': 0,
+                'leading-zero': 0
             }
         }))
         .pipe(sassLint.format())
@@ -144,7 +146,7 @@ gulp.task('scripts', ['lint'], function () {
         .pipe(rename('bloc.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('assets/js/dist'))
-        .pipe(notify({message: "Javascript linted and compiled", title: "Compilation Successful"}))
+    //.pipe(notify({message: "Javascript linted and compiled", title: "Compilation Successful"}))
 });
 
 gulp.task('bundle:minify', function () {
@@ -153,19 +155,20 @@ gulp.task('bundle:minify', function () {
     ])
         .pipe(gulp.dest('assets/js/dist'))
         .pipe(rename('bundle.min.js'))
-        .pipe(uglify())
+        //.pipe(uglify()).on('error', gutil.log)
         .pipe(gulp.dest('assets/js/dist'))
 });
 
 // Concatenate & Minify JS
-gulp.task('webpack:build', function () {
+gulp.task('webpack:build', ['set-env'], function () {
     return gulp.src([
-        'assets/js/react/**/*.js*'
+        'assets/js/react/**/*.js*',
+        'assets/js/modules/**/*.js*'
     ])
         .pipe(plumber({errorHandler: errorAlert}))
         .pipe(webpack(require('./webpack.production.config')))
         .pipe(gulp.dest('assets/js/dist'))
-        .pipe(notify({message: "React built"}))
+    //.pipe(notify({message: "React built"}))
 });
 
 gulp.task('scripts:concat-external:min', ['scripts'], concatExternalScripts(true));
@@ -174,13 +177,16 @@ gulp.task('scripts:concat-external', ['scripts'], concatExternalScripts());
 
 function concatExternalScripts(min = false) {
     let threeJs = [];
-    if(includeThreeJs) {
+    if (includeThreeJs) {
         threeJs = ['assets/vendor/three.js/three' + (min ? '.min' : '') + '.js'];
     }
     return () => {
         return gulp.src([...threeJs,
             /** put your libraries here **/
             'assets/vendor/babel-polyfill/dist/polyfill.min.js',
+            //'assets/vendor/velocity/velocity.min.js',
+            'assets/vendor/particles/particles.min.js',
+            'assets/vendor/iscroll/iscroll.min.js',
             'assets/js/dist/bloc' + (min ? '.min' : '') + '.js'
         ])
             .pipe(concat('bloc' + (min ? '.min' : '') + '.js'))
@@ -188,20 +194,24 @@ function concatExternalScripts(min = false) {
     }
 }
 
+gulp.task('set-env', function () {
+    genv.set({NODE_ENV: 'production'});
+});
+
 
 // Watch Files For Changes
 gulp.task('watch', function () {
-    gulp.watch('assets/js/dist/bloc.js').on('change', browsersync.reload);
+    //gulp.watch(['assets/js/dist/bundle.min.js']).on('change', browsersync.reload);
     gulp.watch(['Views/**/*.cshtml', 'components/*.php']).on('change', browsersync.reload);
-    gulp.watch(['assets/js/*.js', 'assets/js/components/*.js', 'assets/js/react/*.js*'], ['lint', 'scripts', 'scripts:concat-external:min', 'scripts:concat-external']);
-    gulp.watch(['assets/js/react/**/*.js*'], ['webpack:build']);
+    gulp.watch(['assets/js/*.js', 'assets/js/components/*.js', 'assets/js/react/**/*.js*', 'assets/js/modules/**/*.js*'], ['lint', 'scripts', 'scripts:concat-external:min', 'scripts:concat-external']);
+    gulp.watch(['assets/js/react/**/*.js*', 'assets/js/modules/**/*.js*'], ['webpack:build']);
     gulp.watch(['assets/js/dist/bundle.js'], ['bundle:minify']);
     gulp.watch('assets/styles/scss/**/*.scss', ['sass:lint', 'sass:compile']);//.on( 'change', browsersync.stream );
 });
 
 // Default Task
 gulp.task('default', ['lint', 'sass:lint', 'sass:compile', 'scripts', 'scripts:concat-external:min', 'scripts:concat-external', 'watch', 'webpack:build', 'bundle:minify', 'browser-sync', 'webserver']);
-gulp.task('build', ['lint', 'sass:lint', 'sass:compile', 'scripts', 'scripts:concat-external:min', 'scripts:concat-external', 'webpack:build', 'bundle:minify']);
+gulp.task('build', ['set-env', 'lint', 'sass:lint', 'sass:compile', 'scripts', 'scripts:concat-external:min', 'scripts:concat-external', 'webpack:build', 'bundle:minify']);
 
 
 function errorAlert(error) {
