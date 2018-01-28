@@ -1,0 +1,38 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add react react-dom chai mocha chai-immutable immutable react-redux
+
+PATH: 
+  C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\system32\config\systemprofile\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Users\Thomas\AppData\Local\Android\sdk\platform-tools;C:\Program Files (x86)\Skype\Phone\;C:\Program Files (x86)\Yarn\bin;C:\HashiCorp\Vagrant\bin;C:\Program Files\dotnet\;C:\Users\Thomas\AppData\Local\atom\bin;C:\Users\Thomas\AppData\Local\Microsoft\WindowsApps;C:\Users\Thomas\AppData\Roaming\npm;C:\Program Files (x86)\Java\jre1.8.0_121\bin;C:\Users\Thomas\AppData\Local\Yarn\.bin;
+
+Yarn version: 
+  1.3.2
+
+Node version: 
+  7.7.4
+
+Platform: 
+  win32 x64
+
+npm manifest: 
+  {
+    "name": "Bloc",
+    "version": "1.0.0",
+    "description": "A responsive CSS Framework.",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: ENOENT: no such file or directory, lstat 'C:\repositories\bloc\node_modules\loose-envify'

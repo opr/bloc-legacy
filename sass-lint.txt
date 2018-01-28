@@ -1,0 +1,7 @@
+
+[4m./assets/styles/scss/components/_body.scss[24m
+  [2m2:15[22m  [33mwarning[39m  Color 'red' should be written in its hexadecimal form #ff0000              [2mno-color-keywords[22m
+  [2m2:15[22m  [33mwarning[39m  Color literals such as 'red' should only be used in variable declarations  [2mno-color-literals[22m
+
+[33m[1m✖ 2 problems (0 errors, 2 warnings)
+[22m[39m

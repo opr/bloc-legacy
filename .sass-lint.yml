@@ -1,0 +1,37 @@
+options:
+  formatter: stylish
+rules:
+  no-ids:
+    - 2
+  no-css-comments:
+    - 0
+  variable-name-format:
+    - 0
+  final-newline:
+    - 0
+  no-duplicate-properties:
+    - 0
+  no-important:
+    - 0
+  no-mergeable-selectors:
+    - 1
+  pseudo-element:
+    - 0
+  placeholder-in-extend:
+    - 0
+  no-url-domains:
+    - 0
+  no-url-protocols:
+    - 0
+  mixins-before-declarations:
+    - 0
+  leading-zero: 0
+  property-sort-order:
+    - 0
+files:
+  include: './assets/styles/scss/**/*.scss'
+  ignore:
+    - './assets/styles/scss/config/_reset.scss'
+    - './assets/styles/scss/config/_variables.scss'
+    - './assets/styles/scss/config/_font-size.scss'
+    - './assets/styles/scss/mixins/_rgba.scss'
