@@ -24,20 +24,17 @@ module.exports = {
     },
 
     module: {
-        loaders: [
+        rules: [
             // Transform JavaScript files via Babel
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                loader: 'babel'
+                use: 'babel-loader'
             }
-            // Uncomment this if you want to use your own version of React instead of the version
-            // bundled with ReactJS.NET.
-            //{ test: require.resolve('react'), loader: 'expose?React' }
         ],
     },
     resolve: {
         // Allow require('./blah') to require blah.jsx
-        extensions: ['', '.js', '.jsx']
+        extensions: ['.js', '.jsx']
     }
 };

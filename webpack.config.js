@@ -8,6 +8,7 @@ module.exports = {
     entry: [
         'webpack/hot/dev-server?reload=true',
         'webpack-hot-middleware/client',
+        'react-hot-loader/patch',
         path.join(__dirname, '/assets/js/react/', 'index.jsx'),
         path.join(__dirname, '/assets/js/modules/', 'index.jsx'),
     ],
@@ -36,11 +37,9 @@ module.exports = {
                 options: {
                     emitWarning: true
                 }
-            }
+            },
+            {test: /\.jsx?$/, exclude: /node_modules/, use: ['babel-loader']}
         ],
-        loaders: [
-            { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot-loader/webpack', 'babel-loader'] }
-        ]
     },
     resolve: {
         // Allow require('./blah') to require blah.jsx

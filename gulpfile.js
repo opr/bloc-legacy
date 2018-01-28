@@ -89,6 +89,7 @@ gulp.task('sass:lint', function () {
                 'placeholder-in-extend': 0,
                 'no-url-domains': 0,
                 'no-url-protocols': 0,
+                'leading-zero': 0,
                 'mixins-before-declarations': 0,
                 'property-sort-order': 0
             }
@@ -137,14 +138,13 @@ gulp.task('scripts', ['lint'], function () {
         'assets/js/components/*.js'])
         .pipe(plumber({errorHandler: errorAlert}))
         .pipe(babel({
-            presets: ['es2015']
+            presets: ['env']
         }))
         .pipe(concat('bloc.js'))
         .pipe(gulp.dest('assets/js/dist'))
         .pipe(rename('bloc.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('assets/js/dist'))
-        .pipe(notify({message: "Javascript linted and compiled", title: "Compilation Successful"}))
 });
 
 gulp.task('bundle:minify', function () {
@@ -165,7 +165,6 @@ gulp.task('webpack:build', function () {
         .pipe(plumber({errorHandler: errorAlert}))
         .pipe(webpack(require('./webpack.production.config')))
         .pipe(gulp.dest('assets/js/dist'))
-        .pipe(notify({message: "React built"}))
 });
 
 gulp.task('scripts:concat-external:min', ['scripts'], concatExternalScripts(true));
@@ -191,8 +190,8 @@ function concatExternalScripts(min = false) {
 
 // Watch Files For Changes
 gulp.task('watch', function () {
-    gulp.watch('assets/js/dist/bloc.js').on('change', browsersync.reload);
-    gulp.watch(['Views/**/*.cshtml', 'components/*.php']).on('change', browsersync.reload);
+    //gulp.watch('assets/js/dist/bloc.js').on('change', browsersync.reload);
+    //gulp.watch(['Views/**/*.cshtml', 'components/*.php']).on('change', browsersync.reload);
     gulp.watch(['assets/js/*.js', 'assets/js/components/*.js', 'assets/js/react/*.js*'], ['lint', 'scripts', 'scripts:concat-external:min', 'scripts:concat-external']);
     gulp.watch(['assets/js/react/**/*.js*'], ['webpack:build']);
     gulp.watch(['assets/js/dist/bundle.js'], ['bundle:minify']);
